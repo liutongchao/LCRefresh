@@ -34,3 +34,8 @@
 
 ![HeaderRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-03286bc8c3fd87a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![FooterRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-8b78a79cd6f9140c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+详细信息请移步到我的博客
+[Swift 让我来告诉你封装下拉刷新多么简单](http://www.jianshu.com/p/725cd8028c8a)
+
+##--by West
