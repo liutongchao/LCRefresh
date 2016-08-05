@@ -20,12 +20,12 @@ class ViewController: UIViewController {
         weak var weakSelf = self
         table.addRefreshHeaderWithBlock {
             print("header 刷新")
-            weakSelf!.performSelector(#selector(ViewController.headerRefresh), withObject: nil, afterDelay: 5)
+            weakSelf!.performSelector(#selector(ViewController.headerRefresh), withObject: nil, afterDelay: 2)
         }
         
         table.addRefreshFooterWithBlock { 
             print("header 刷新")
-            weakSelf!.performSelector(#selector(ViewController.footerRefresh), withObject: nil, afterDelay: 5)
+            weakSelf!.performSelector(#selector(ViewController.footerRefresh), withObject: nil, afterDelay: 2)
         }
         
         
