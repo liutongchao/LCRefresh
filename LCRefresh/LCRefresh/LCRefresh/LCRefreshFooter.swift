@@ -15,19 +15,19 @@ class LCRefreshFooter: UIView {
 
     var refreshStatus: LCRefreshFooterStatus?
     
-    func setStatus(status:LCRefreshFooterStatus){
+    func setStatus(_ status:LCRefreshFooterStatus){
         refreshStatus = status
         switch status {
-        case .Normal:
+        case .normal:
             setNomalStatus()
             break
-        case .WaitRefresh:
+        case .waitRefresh:
             setWaitRefreshStatus()
             break
-        case .Refreshing:
+        case .refreshing:
             setRefreshingStatus()
             break
-        case .Loadover:
+        case .loadover:
             setLoadoverStatus()
             break
         }
@@ -38,35 +38,35 @@ class LCRefreshFooter: UIView {
 
 extension LCRefreshFooter{
     /** 各种状态切换 */
-    private func setNomalStatus() {
-        if activity.isAnimating() {
+    fileprivate func setNomalStatus() {
+        if activity.isAnimating {
             activity.stopAnimating()
         }
-        activity.hidden = true
+        activity.isHidden = true
         contentLab.text = "上拉加载更多数据"
     }
     
-    private func setWaitRefreshStatus() {
-        if activity.isAnimating() {
+    fileprivate func setWaitRefreshStatus() {
+        if activity.isAnimating {
             activity.stopAnimating()
         }
-        activity.hidden = true
+        activity.isHidden = true
         
         contentLab.text = "松开加载更多数据"
     }
     
-    private func setRefreshingStatus() {
-        activity.hidden = false
+    fileprivate func setRefreshingStatus() {
+        activity.isHidden = false
         activity.startAnimating()
         
         contentLab.text = "正在加载更多数据..."
     }
     
-    private func setLoadoverStatus() {
-        if activity.isAnimating() {
+    fileprivate func setLoadoverStatus() {
+        if activity.isAnimating {
             activity.stopAnimating()
         }
-        activity.hidden = true
+        activity.isHidden = true
         contentLab.text = "全部加载完毕"
     }
     

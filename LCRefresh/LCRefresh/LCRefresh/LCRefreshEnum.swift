@@ -11,23 +11,23 @@ import Foundation
 /** Header 刷新状态 */
 enum LCRefreshHeaderStatus {
     case
-    Normal,
-    WaitRefresh,
-    Refreshing
+    normal,
+    waitRefresh,
+    refreshing
 }
 /** Footer 刷新状态 */
 enum LCRefreshFooterStatus {
     case
-    Normal,
-    WaitRefresh,
-    Refreshing,
-    Loadover
+    normal,
+    waitRefresh,
+    refreshing,
+    loadover
 }
 
 /** 当前刷新对象 */
 enum LCRefreshObject {
-    case None,
-        Header,
-        Footer
+    case none,
+        header,
+        footer
 }
 

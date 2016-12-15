@@ -16,16 +16,16 @@ class LCRefreshHeader: UIView {
     
     var refreshStatus: LCRefreshHeaderStatus?
     
-    func setStatus(status:LCRefreshHeaderStatus){
+    func setStatus(_ status:LCRefreshHeaderStatus){
         refreshStatus = status
         switch status {
-        case .Normal:
+        case .normal:
             setNomalStatus()
             break
-        case .WaitRefresh:
+        case .waitRefresh:
             setWaitRefreshStatus()
             break
-        case .Refreshing:
+        case .refreshing:
             setRefreshingStatus()
             break
         }
@@ -34,41 +34,41 @@ class LCRefreshHeader: UIView {
 
 extension LCRefreshHeader{
     /** 各种状态切换 */
-    private func setNomalStatus() {
-        if activity.isAnimating() {
+    fileprivate func setNomalStatus() {
+        if activity.isAnimating {
             activity.stopAnimating()
         }
-        activity.hidden = true
+        activity.isHidden = true
         
         contenLab.text = "下拉可以刷新"
-        image.hidden = false
+        image.isHidden = false
         
-        UIView.animateWithDuration(0.2) { 
-            self.image.transform = CGAffineTransformIdentity
-        }
+        UIView.animate(withDuration: 0.2, animations: { 
+            self.image.transform = CGAffineTransform.identity
+        }) 
     }
     
-    private func setWaitRefreshStatus() {
-        if activity.isAnimating() {
+    fileprivate func setWaitRefreshStatus() {
+        if activity.isAnimating {
             activity.stopAnimating()
         }
-        activity.hidden = true
+        activity.isHidden = true
         
         contenLab.text = "松开立即刷新"
-        image.hidden = false
+        image.isHidden = false
         
-        UIView.animateWithDuration(0.2) { 
-            self.image.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
+        UIView.animate(withDuration: 0.2, animations: { 
+            self.image.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI))
 
-        }
+        }) 
     }
     
-    private func setRefreshingStatus() {
-        activity.hidden = false
+    fileprivate func setRefreshingStatus() {
+        activity.isHidden = false
         activity.startAnimating()
 
         contenLab.text = "正在刷新数据..."
-        image.hidden = true
+        image.isHidden = true
     }
     
 }

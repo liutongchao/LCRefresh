@@ -20,17 +20,16 @@ class ViewController: UIViewController {
         weak var weakSelf = self
         table.addRefreshHeaderWithBlock {
             print("header 刷新")
-            weakSelf!.performSelector(#selector(ViewController.headerRefresh), withObject: nil, afterDelay: 2)
+            weakSelf!.perform(#selector(ViewController.headerRefresh), with: nil, afterDelay: 2)
         }
         
-        table.addRefreshFooterWithBlock { 
-            print("header 刷新")
-            weakSelf!.performSelector(#selector(ViewController.footerRefresh), withObject: nil, afterDelay: 2)
+        table.addRefreshFooterWithBlock {
+            print("footer 刷新")
+            weakSelf!.perform(#selector(ViewController.footerRefresh), with: nil, afterDelay: 2)
         }
         
         
-        table.tableFooterView = UIView.init(frame: CGRectMake(0, 0, 300, 5))
-        
+        table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
         
     }
 
@@ -69,18 +68,32 @@ class ViewController: UIViewController {
 }
 
 extension ViewController:UITableViewDataSource{
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numRows
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init()
         cell.textLabel?.text = "label\(indexPath.row)"
         
         return cell
+    }
+
+}
+
+extension ViewController:UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let vi = UIView.init()
+        vi.backgroundColor = UIColor.lightGray
+        return vi
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30;
     }
 }
 

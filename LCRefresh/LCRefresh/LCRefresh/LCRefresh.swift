@@ -13,13 +13,14 @@ private var lcFooterBlock: (()->Void)?
 private var header: LCRefreshHeader?
 private var footer: LCRefreshFooter?
 private var footerView: UIView?
-private var refreshObj = LCRefreshObject.Header
-private var lastRefreshObj = LCRefreshObject.Header
+private var refreshObj = LCRefreshObject.header
+private var lastRefreshObj = LCRefreshObject.header
+private var isHaveObserver = false
 
 extension UIScrollView{
     //MARK: /** Header 相关 */
     /** 添加下拉刷新 */
-    func addRefreshHeaderWithBlock(refreshBlock:()->Void){
+    func addRefreshHeaderWithBlock(_ refreshBlock:@escaping ()->Void){
         /** 添加header */
         weak var weakSelf = self
 
@@ -30,13 +31,15 @@ extension UIScrollView{
         }
         header!.center = LCRefreshHeaderCenter
 
-        let headerView = UIView.init(frame: CGRectMake(LCRefreshHeaderX, LCRefreshHeaderY, LCRefreshScreenWidth, LCRefreshHeaderHeight))
-        headerView.backgroundColor = UIColor.clearColor()
+        let headerView = UIView.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
+        headerView.backgroundColor = UIColor.clear
         headerView.addSubview(header!)
         weakSelf!.addSubview(headerView)
         
         /** 设置代理信息 */
-        weakSelf!.delegate = weakSelf
+//        weakSelf!.delegate = weakSelf
+        addOffsetObserver()
+
         weakSelf!.panGestureRecognizer.addTarget(weakSelf!, action: #selector(UIScrollView.scrollViewDragging(_:)))
         
         lcHeaderBlock = refreshBlock
@@ -47,7 +50,7 @@ extension UIScrollView{
             return false
         }
         
-        return header!.refreshStatus == LCRefreshHeaderStatus.Refreshing ? true: false
+        return header!.refreshStatus == LCRefreshHeaderStatus.refreshing ? true: false
     }
     
     /** header 结束刷新 */
@@ -57,19 +60,27 @@ extension UIScrollView{
         guard header != nil else{
             return
         }
-        if lastRefreshObj == LCRefreshObject.Header {
-            weakSelf!.setContentOffset(CGPointMake(0, 0), animated: true)
+        if lastRefreshObj == LCRefreshObject.header {
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
-        header!.setStatus(LCRefreshHeaderStatus.Normal)
+        header!.setStatus(LCRefreshHeaderStatus.normal)
 
-        lastRefreshObj = LCRefreshObject.Header
+        lastRefreshObj = LCRefreshObject.header
+    }
+    
+    func addOffsetObserver() {
+        if(!isHaveObserver){
+            self.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
+            isHaveObserver = true;
+        }
+        
     }
 }
 
 extension UIScrollView{
     //MARK: /** Footer 相关 */
     /** 添加下拉刷新 */
-    func addRefreshFooterWithBlock(refreshBlock:()->Void){
+    func addRefreshFooterWithBlock(_ refreshBlock:@escaping ()->Void){
         /** 添加header */
         weak var weakSelf = self
         footer = LCRefreshFooter.instanceFromNibBundle() as? LCRefreshFooter
@@ -79,15 +90,16 @@ extension UIScrollView{
         }
         footer!.center = LCRefreshFooterCenter
         
-        footerView = UIView.init(frame: CGRectMake(LCRefreshFooterX, weakSelf!.contentSize.height, LCRefreshScreenWidth, LCRefreshFooterHeight))
-        footerView!.backgroundColor = UIColor.clearColor()
+        footerView = UIView.init(frame: CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
+        footerView!.backgroundColor = UIColor.clear
 
         footerView!.addSubview(footer!)
-        footerView!.hidden = true
+        footerView!.isHidden = true
         weakSelf!.addSubview(footerView!)
         
         /** 设置代理信息 */
-        weakSelf!.delegate = weakSelf
+//        weakSelf!.delegate = weakSelf
+        addOffsetObserver()
         weakSelf!.panGestureRecognizer.addTarget(weakSelf!, action: #selector(UIScrollView.scrollViewDragging(_:)))
         
         lcFooterBlock = refreshBlock
@@ -98,7 +110,7 @@ extension UIScrollView{
             return false
         }
         
-        return footer!.refreshStatus == LCRefreshFooterStatus.Refreshing ? true: false
+        return footer!.refreshStatus == LCRefreshFooterStatus.refreshing ? true: false
     }
     
     /** footer 结束刷新 */
@@ -108,21 +120,21 @@ extension UIScrollView{
             return
         }
         let size = weakSelf!.contentSize
-        weakSelf!.contentSize = CGSizeMake(size.width, size.height - LCRefreshFooterHeight)
+        weakSelf!.contentSize = CGSize(width: size.width, height: size.height - LCRefreshFooterHeight)
         
         /** 1、数据没有充满屏幕
             2、数据已经填充满屏幕 **/
  
         if size.height < weakSelf!.bounds.size.height {
-            weakSelf!.setContentOffset(CGPointMake(0, 0), animated: true)
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }else{
             let offSet = weakSelf!.contentSize.height-weakSelf!.bounds.size.height
-            weakSelf!.setContentOffset(CGPointMake(0, offSet), animated: true)
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: offSet), animated: true)
         }
-        footer!.setStatus(LCRefreshFooterStatus.Normal)
-        footerView!.hidden = true
+        footer!.setStatus(LCRefreshFooterStatus.normal)
+        footerView!.isHidden = true
         
-        lastRefreshObj = LCRefreshObject.Footer
+        lastRefreshObj = LCRefreshObject.footer
     }
 }
 
@@ -134,11 +146,11 @@ extension UIScrollView{
             return
         }
         let size = weakSelf!.contentSize
-        footerView!.hidden = false
-        footerView!.frame = CGRectMake(LCRefreshFooterX, size.height, LCRefreshScreenWidth, LCRefreshFooterHeight)
+        footerView!.isHidden = false
+        footerView!.frame = CGRect(x: LCRefreshFooterX, y: size.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
-        weakSelf!.contentSize = CGSizeMake(size.width, size.height + LCRefreshFooterHeight)
-        footer!.setStatus(LCRefreshFooterStatus.Loadover)
+        weakSelf!.contentSize = CGSize(width: size.width, height: size.height + LCRefreshFooterHeight)
+        footer!.setStatus(LCRefreshFooterStatus.loadover)
     }
     
     /** 初始化状态 **/
@@ -146,139 +158,143 @@ extension UIScrollView{
         guard footer != nil else{
             return
         }
-        footerView!.hidden = true
-        footer!.setStatus(LCRefreshFooterStatus.Normal)
+        footerView!.isHidden = true
+        footer!.setStatus(LCRefreshFooterStatus.normal)
     }
 }
 
-extension UIScrollView: UIScrollViewDelegate{
+extension UIScrollView{
     //MARK: 滑动监测
-    /** 滑动相关 */
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.y
-        let scrollHeight = scrollView.bounds.size.height
-        let inset = scrollView.contentInset
-        var currentOffset = offSet + scrollHeight - inset.bottom
-        let maximumOffset = scrollView.contentSize.height
-        
-        /** 数据未充满屏幕的情况 **/
-        if maximumOffset < scrollHeight {
-            currentOffset = offSet + maximumOffset - inset.bottom
-        }
-        
-        if offSet < 0 {
-            /** 下拉刷新 */
-            guard header != nil else{
-                return
-            }
-            scrollHeader(offSet)
-            refreshObj = LCRefreshObject.Header
-        }else if currentOffset - maximumOffset > 0 {
-            /** 上拉刷新 */
+    
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentOffset" {
+            let offSet = self.contentOffset.y
+            let scrollHeight = self.bounds.size.height
+            let inset = self.contentInset
+            var currentOffset = offSet + scrollHeight - inset.bottom
+            let maximumOffset = self.contentSize.height
             
-            guard footer != nil else{
-                return
+            /** 数据未充满屏幕的情况 **/
+            if maximumOffset < scrollHeight {
+                currentOffset = offSet + maximumOffset - inset.bottom
             }
-            guard footer!.refreshStatus != LCRefreshFooterStatus.Loadover else {
-                return
+            
+            if offSet < 0 {
+                /** 下拉刷新 */
+                guard header != nil else{
+                    return
+                }
+                scrollHeader(offSet)
+                refreshObj = LCRefreshObject.header
+            }else if currentOffset - maximumOffset > 0 {
+                /** 上拉刷新 */
+                
+                guard footer != nil else{
+                    return
+                }
+                guard footer!.refreshStatus != LCRefreshFooterStatus.loadover else {
+                    return
+                }
+                
+                scrollFooter(currentOffset - maximumOffset)
+                refreshObj = LCRefreshObject.footer
+                
+            }else{
+                /** 无刷新对象 */
+                refreshObj = LCRefreshObject.none
             }
 
-            scrollFooter(currentOffset - maximumOffset)
-            refreshObj = LCRefreshObject.Footer
-            
-        }else{
-            /** 无刷新对象 */
-            refreshObj = LCRefreshObject.None
         }
     }
     
-    private func scrollHeader(offSet: CGFloat) {//参数为负数
+    fileprivate func scrollHeader(_ offSet: CGFloat) {//参数为负数
         guard header != nil else{
             print("Header加载失败")
             return
         }
-        guard header!.refreshStatus != LCRefreshHeaderStatus.Refreshing else{
+        guard header!.refreshStatus != LCRefreshHeaderStatus.refreshing else{
             return
         }
         if offSet < -LCRefreshHeaderHeight {
-            header!.setStatus(LCRefreshHeaderStatus.WaitRefresh)
+            header!.setStatus(LCRefreshHeaderStatus.waitRefresh)
         }else{
-            header!.setStatus(LCRefreshHeaderStatus.Normal)
+            header!.setStatus(LCRefreshHeaderStatus.normal)
         }
 
     }
-    private func scrollFooter(offSet: CGFloat) {
+    
+    fileprivate func scrollFooter(_ offSet: CGFloat) {
         weak var weakSelf = self
         guard footer != nil else{
             print("Footer加载失败")
             return
         }
-        guard footer!.refreshStatus != LCRefreshFooterStatus.Refreshing else{
+        guard footer!.refreshStatus != LCRefreshFooterStatus.refreshing else{
             return
         }
         
-        footerView!.hidden = false
-        footerView!.frame = CGRectMake(LCRefreshFooterX, weakSelf!.contentSize.height, LCRefreshScreenWidth, LCRefreshFooterHeight)
+        footerView!.isHidden = false
+        footerView!.frame = CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
         if offSet > LCRefreshFooterHeight {
-            footer!.setStatus(LCRefreshFooterStatus.WaitRefresh)
+            footer!.setStatus(LCRefreshFooterStatus.waitRefresh)
         }else{
-            footer!.setStatus(LCRefreshFooterStatus.Normal)
+            footer!.setStatus(LCRefreshFooterStatus.normal)
         }
 
     }
     
     /** 拖拽相关 */
-    func scrollViewDragging(pan: UIPanGestureRecognizer){
-        if pan.state == .Ended{
-            if refreshObj == LCRefreshObject.Header {
+    func scrollViewDragging(_ pan: UIPanGestureRecognizer){
+        if pan.state == .ended{
+            if refreshObj == LCRefreshObject.header {
                 draggHeader()
 
-            }else if refreshObj == LCRefreshObject.Footer{
+            }else if refreshObj == LCRefreshObject.footer{
                 draggFooter()
             }
         }
     }
     
-    private func draggHeader(){
+    fileprivate func draggHeader(){
         weak var weakSelf = self
         guard header != nil else{
             print("Header加载失败")
             return
         }
-        if header!.refreshStatus == LCRefreshHeaderStatus.WaitRefresh {
-            weakSelf!.setContentOffset(CGPointMake(0, -LCRefreshHeaderHeight), animated: true)
-            header!.setStatus(LCRefreshHeaderStatus.Refreshing)
+        if header!.refreshStatus == LCRefreshHeaderStatus.waitRefresh {
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: -LCRefreshHeaderHeight), animated: true)
+            header!.setStatus(LCRefreshHeaderStatus.refreshing)
             if lcHeaderBlock != nil {
                 lcHeaderBlock!()
             }
-        }else if header!.refreshStatus == LCRefreshHeaderStatus.Refreshing{
-            weakSelf!.setContentOffset(CGPointMake(0, -LCRefreshHeaderHeight), animated: true)
+        }else if header!.refreshStatus == LCRefreshHeaderStatus.refreshing{
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: -LCRefreshHeaderHeight), animated: true)
             
         }
     }
     
-    private func draggFooter() {
+    fileprivate func draggFooter() {
         weak var weakSelf = self
         guard footer != nil else{
             print("Footer加载失败")
             return
         }
-        if footer!.refreshStatus == LCRefreshFooterStatus.WaitRefresh {
+        if footer!.refreshStatus == LCRefreshFooterStatus.waitRefresh {
             /** 设置scroll的contentsize 以及滑动offset **/
             let size = weakSelf!.contentSize
-            weakSelf!.contentSize = CGSizeMake(size.width, size.height + LCRefreshFooterHeight)
+            weakSelf!.contentSize = CGSize(width: size.width, height: size.height + LCRefreshFooterHeight)
             /** 1、数据没有充满屏幕
              2、数据已经填充满屏幕
              **/
             if size.height < weakSelf!.bounds.size.height {
-                weakSelf!.setContentOffset(CGPointMake(0, 0), animated: true)
+                weakSelf!.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }else{
                 let offSet = weakSelf!.contentSize.height-weakSelf!.bounds.size.height
-                weakSelf!.setContentOffset(CGPointMake(0, offSet), animated: true)
+                weakSelf!.setContentOffset(CGPoint(x: 0, y: offSet), animated: true)
             }
             /** 切换状态 **/
-            footer!.setStatus(LCRefreshFooterStatus.Refreshing)
+            footer!.setStatus(LCRefreshFooterStatus.refreshing)
             if lcFooterBlock != nil {
                 lcFooterBlock!()
             }
@@ -294,16 +310,16 @@ extension UIView{
     
     class func instanceFromNibBundle() -> UIView? {
         
-        let nib = UINib.init(nibName: String(self), bundle: nil)
-        let views = nib.instantiateWithOwner(nil, options: nil)
+        let nib = UINib.init(nibName: String(describing: self), bundle: nil)
+        let views = nib.instantiate(withOwner: nil, options: nil)
         
         for view in views {
-            if view.isMemberOfClass(self) {
+            if (view as AnyObject).isMember(of: self) {
                 return view as? UIView
             }
         }
         
-        assert(false, "Exepect file:\(String(self)).xib")
+        assert(false, "Exepect file:\(String(describing: self)).xib")
         return nil
     }
 

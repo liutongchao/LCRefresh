@@ -8,18 +8,18 @@
 
 import UIKit
 
-let LCRefreshScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
-let LCRefreshScreenHeight: CGFloat = UIScreen.mainScreen().bounds.height
+let LCRefreshScreenWidth: CGFloat = UIScreen.main.bounds.width
+let LCRefreshScreenHeight: CGFloat = UIScreen.main.bounds.height
 
 let LCRefreshHeaderX: CGFloat = 0
 let LCRefreshHeaderY: CGFloat = -50
 let LCRefreshHeaderWidth: CGFloat = 300
 let LCRefreshHeaderHeight: CGFloat = 50
-let LCRefreshHeaderCenter = CGPointMake(UIScreen.mainScreen().bounds.width / 2, LCRefreshHeaderHeight / 2)
+let LCRefreshHeaderCenter = CGPoint(x: UIScreen.main.bounds.width / 2, y: LCRefreshHeaderHeight / 2)
 
 let LCRefreshFooterX: CGFloat = 0
 let LCRefreshFooterY: CGFloat = 0
 let LCRefreshFooterWidth: CGFloat = 300
 let LCRefreshFooterHeight: CGFloat = 50
-let LCRefreshFooterCenter = CGPointMake(UIScreen.mainScreen().bounds.width / 2, LCRefreshHeaderHeight / 2)
+let LCRefreshFooterCenter = CGPoint(x: UIScreen.main.bounds.width / 2, y: LCRefreshHeaderHeight / 2)
 
