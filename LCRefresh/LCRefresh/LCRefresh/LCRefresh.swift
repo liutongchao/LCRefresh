@@ -36,8 +36,7 @@ extension UIScrollView{
         headerView.addSubview(header!)
         weakSelf!.addSubview(headerView)
         
-        /** 设置代理信息 */
-//        weakSelf!.delegate = weakSelf
+        //添加滑动监测
         addOffsetObserver()
 
         weakSelf!.panGestureRecognizer.addTarget(weakSelf!, action: #selector(UIScrollView.scrollViewDragging(_:)))
@@ -97,8 +96,7 @@ extension UIScrollView{
         footerView!.isHidden = true
         weakSelf!.addSubview(footerView!)
         
-        /** 设置代理信息 */
-//        weakSelf!.delegate = weakSelf
+        //添加滑动监测
         addOffsetObserver()
         weakSelf!.panGestureRecognizer.addTarget(weakSelf!, action: #selector(UIScrollView.scrollViewDragging(_:)))
         
