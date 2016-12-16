@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        title = "下拉刷新"
         weak var weakSelf = self
         table.addRefreshHeaderWithBlock {
             print("header 刷新")

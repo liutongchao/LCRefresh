@@ -59,8 +59,10 @@ extension UIScrollView{
         guard header != nil else{
             return
         }
+        //在nav下会产生top偏移
+        let insetTop = self.contentInset.top;
         if lastRefreshObj == LCRefreshObject.header {
-            weakSelf!.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: -insetTop), animated: true)
         }
         header!.setStatus(LCRefreshHeaderStatus.normal)
 
@@ -260,14 +262,17 @@ extension UIScrollView{
             print("Header加载失败")
             return
         }
+        //在nav下会产生top偏移
+        let insetTop = self.contentInset.top;
+
         if header!.refreshStatus == LCRefreshHeaderStatus.waitRefresh {
-            weakSelf!.setContentOffset(CGPoint(x: 0, y: -LCRefreshHeaderHeight), animated: true)
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: -(LCRefreshHeaderHeight+insetTop)), animated: true)
             header!.setStatus(LCRefreshHeaderStatus.refreshing)
             if lcHeaderBlock != nil {
                 lcHeaderBlock!()
             }
         }else if header!.refreshStatus == LCRefreshHeaderStatus.refreshing{
-            weakSelf!.setContentOffset(CGPoint(x: 0, y: -LCRefreshHeaderHeight), animated: true)
+            weakSelf!.setContentOffset(CGPoint(x: 0, y: (LCRefreshHeaderHeight+insetTop)), animated: true)
             
         }
     }
