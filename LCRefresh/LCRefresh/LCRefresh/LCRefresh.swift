@@ -54,11 +54,12 @@ extension UIScrollView{
     
     /** header 结束刷新 */
     func endHeaderRefreshing() {
-        weak var weakSelf = self
 
         guard header != nil else{
             return
         }
+        weak var weakSelf = self
+
         //在nav下会产生top偏移
         let insetTop = self.contentInset.top;
         if lastRefreshObj == LCRefreshObject.header {
@@ -71,7 +72,8 @@ extension UIScrollView{
     
     func addOffsetObserver() {
         if(!isHaveObserver){
-            self.addObserver(self, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
+            weak var weakSelf = self
+            self.addObserver(weakSelf!, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
             isHaveObserver = true;
         }
         
