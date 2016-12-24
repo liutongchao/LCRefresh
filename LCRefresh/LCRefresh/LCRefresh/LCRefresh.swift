@@ -20,7 +20,7 @@ private var isHaveObserver = false
 extension UIScrollView{
     //MARK: /** Header 相关 */
     /** 添加下拉刷新 */
-    func addRefreshHeaderWithBlock(_ refreshBlock:@escaping ()->Void){
+    public func addRefreshHeaderWithBlock(_ refreshBlock:@escaping ()->Void){
         /** 添加header */
         weak var weakSelf = self
 
@@ -44,7 +44,7 @@ extension UIScrollView{
         lcHeaderBlock = refreshBlock
     }
     /** header 刷新状态 */
-    func isHeaderRefreshing() -> Bool {
+    public func isHeaderRefreshing() -> Bool {
         guard header != nil else{
             return false
         }
@@ -53,7 +53,7 @@ extension UIScrollView{
     }
     
     /** header 结束刷新 */
-    func endHeaderRefreshing() {
+    public func endHeaderRefreshing() {
 
         guard header != nil else{
             return
@@ -83,7 +83,7 @@ extension UIScrollView{
 extension UIScrollView{
     //MARK: /** Footer 相关 */
     /** 添加下拉刷新 */
-    func addRefreshFooterWithBlock(_ refreshBlock:@escaping ()->Void){
+    public func addRefreshFooterWithBlock(_ refreshBlock:@escaping ()->Void){
         /** 添加header */
         weak var weakSelf = self
         footer = LCRefreshFooter.instanceFromNibBundle() as? LCRefreshFooter
@@ -107,7 +107,7 @@ extension UIScrollView{
         lcFooterBlock = refreshBlock
     }
     /** footer 刷新状态 */
-    func isFooterRefreshing() -> Bool {
+    public func isFooterRefreshing() -> Bool {
         guard footer != nil else{
             return false
         }
@@ -116,7 +116,7 @@ extension UIScrollView{
     }
     
     /** footer 结束刷新 */
-    func endFooterRefreshing() {
+    public func endFooterRefreshing() {
         weak var weakSelf = self
         guard footer != nil else{
             return
@@ -142,7 +142,7 @@ extension UIScrollView{
 
 extension UIScrollView{
     //MARK: /** 数据加载完毕状态 **/
-    func setDataLoadover() {
+    public func setDataLoadover() {
         weak var weakSelf = self
         guard footer != nil else{
             return
@@ -156,7 +156,7 @@ extension UIScrollView{
     }
     
     /** 初始化状态 **/
-    func resetDataLoad() {
+    public func resetDataLoad() {
         guard footer != nil else{
             return
         }
