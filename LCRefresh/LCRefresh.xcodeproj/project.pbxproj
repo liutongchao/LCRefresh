@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		573C9DC91E0E6ABC00AF0C1D /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 573C9DC81E0E6ABC00AF0C1D /* LCRefresh.bundle */; };
 		57816BE51D509051000BF2B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57816BE41D509051000BF2B3 /* AppDelegate.swift */; };
 		57816BE71D509051000BF2B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57816BE61D509051000BF2B3 /* ViewController.swift */; };
 		57816BEA1D509051000BF2B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57816BE81D509051000BF2B3 /* Main.storyboard */; };
@@ -16,11 +17,8 @@
 		57816C051D509051000BF2B3 /* LCRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57816C041D509051000BF2B3 /* LCRefreshUITests.swift */; };
 		57816C181D509EB8000BF2B3 /* LCRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57816C171D509EB8000BF2B3 /* LCRefresh.swift */; };
 		57CBCF8C1D52D79C003F6C06 /* LCRefreshEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CBCF8B1D52D79C003F6C06 /* LCRefreshEnum.swift */; };
-		57D61EDD1D53475C0006F58A /* LCRefresh.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D61EDC1D53475C0006F58A /* LCRefresh.xcassets */; };
 		57E5C9711D51811700C9F892 /* LCRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E5C9701D51811700C9F892 /* LCRefreshConst.swift */; };
-		57E5C9731D51858500C9F892 /* LCRefreshHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57E5C9721D51858500C9F892 /* LCRefreshHeader.xib */; };
 		57E5C9791D5188BB00C9F892 /* LCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E5C9781D5188BB00C9F892 /* LCRefreshHeader.swift */; };
-		57E5C9811D51F62B00C9F892 /* LCRefreshFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57E5C9801D51F62B00C9F892 /* LCRefreshFooter.xib */; };
 		57E5C9831D51F63500C9F892 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E5C9821D51F63500C9F892 /* LCRefreshFooter.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		573C9DC81E0E6ABC00AF0C1D /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
 		57816BE11D509051000BF2B3 /* LCRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57816BE41D509051000BF2B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57816BE61D509051000BF2B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,11 +56,8 @@
 		57816C061D509051000BF2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57816C171D509EB8000BF2B3 /* LCRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefresh.swift; sourceTree = "<group>"; };
 		57CBCF8B1D52D79C003F6C06 /* LCRefreshEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshEnum.swift; sourceTree = "<group>"; };
-		57D61EDC1D53475C0006F58A /* LCRefresh.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LCRefresh.xcassets; sourceTree = "<group>"; };
 		57E5C9701D51811700C9F892 /* LCRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshConst.swift; sourceTree = "<group>"; };
-		57E5C9721D51858500C9F892 /* LCRefreshHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCRefreshHeader.xib; sourceTree = "<group>"; };
 		57E5C9781D5188BB00C9F892 /* LCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshHeader.swift; sourceTree = "<group>"; };
-		57E5C9801D51F62B00C9F892 /* LCRefreshFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCRefreshFooter.xib; sourceTree = "<group>"; };
 		57E5C9821D51F63500C9F892 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,10 +145,8 @@
 				57CBCF8B1D52D79C003F6C06 /* LCRefreshEnum.swift */,
 				57E5C9701D51811700C9F892 /* LCRefreshConst.swift */,
 				57E5C9781D5188BB00C9F892 /* LCRefreshHeader.swift */,
-				57E5C9721D51858500C9F892 /* LCRefreshHeader.xib */,
 				57E5C9821D51F63500C9F892 /* LCRefreshFooter.swift */,
-				57E5C9801D51F62B00C9F892 /* LCRefreshFooter.xib */,
-				57D61EDC1D53475C0006F58A /* LCRefresh.xcassets */,
+				573C9DC81E0E6ABC00AF0C1D /* LCRefresh.bundle */,
 			);
 			path = LCRefresh;
 			sourceTree = "<group>";
@@ -265,11 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57816BEF1D509051000BF2B3 /* LaunchScreen.storyboard in Resources */,
-				57E5C9811D51F62B00C9F892 /* LCRefreshFooter.xib in Resources */,
+				573C9DC91E0E6ABC00AF0C1D /* LCRefresh.bundle in Resources */,
 				57816BEC1D509051000BF2B3 /* Assets.xcassets in Resources */,
 				57816BEA1D509051000BF2B3 /* Main.storyboard in Resources */,
-				57E5C9731D51858500C9F892 /* LCRefreshHeader.xib in Resources */,
-				57D61EDD1D53475C0006F58A /* LCRefresh.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

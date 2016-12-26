@@ -9,11 +9,39 @@
 import UIKit
 
 class LCRefreshFooter: UIView {
-    
-    @IBOutlet weak var activity: UIActivityIndicatorView!
-    @IBOutlet weak var contentLab: UILabel!
+//    
+//    @IBOutlet weak var activity: UIActivityIndicatorView!
+//    @IBOutlet weak var contentLab: UILabel!
+
+    let contenLab = UILabel()
+    let activity = UIActivityIndicatorView()
 
     var refreshStatus: LCRefreshFooterStatus?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        configView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configView() {
+        addSubview(contenLab)
+        addSubview(activity)
+        
+        contenLab.frame = self.bounds
+        contenLab.textAlignment = .center
+        contenLab.text = "上拉加载更多数据"
+            
+        activity.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        activity.activityIndicatorViewStyle = .gray
+        activity.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)
+        
+    }
+
     
     func setStatus(_ status:LCRefreshFooterStatus){
         refreshStatus = status
@@ -43,7 +71,7 @@ extension LCRefreshFooter{
             activity.stopAnimating()
         }
         activity.isHidden = true
-        contentLab.text = "上拉加载更多数据"
+        contenLab.text = "上拉加载更多数据"
     }
     
     fileprivate func setWaitRefreshStatus() {
@@ -52,14 +80,14 @@ extension LCRefreshFooter{
         }
         activity.isHidden = true
         
-        contentLab.text = "松开加载更多数据"
+        contenLab.text = "松开加载更多数据"
     }
     
     fileprivate func setRefreshingStatus() {
         activity.isHidden = false
         activity.startAnimating()
         
-        contentLab.text = "正在加载更多数据..."
+        contenLab.text = "正在加载更多数据..."
     }
     
     fileprivate func setLoadoverStatus() {
@@ -67,7 +95,7 @@ extension LCRefreshFooter{
             activity.stopAnimating()
         }
         activity.isHidden = true
-        contentLab.text = "全部加载完毕"
+        contenLab.text = "全部加载完毕"
     }
     
     

@@ -12,7 +12,6 @@ private var lcHeaderBlock: (()->Void)?
 private var lcFooterBlock: (()->Void)?
 private var header: LCRefreshHeader?
 private var footer: LCRefreshFooter?
-private var footerView: UIView?
 private var refreshObj = LCRefreshObject.header
 private var lastRefreshObj = LCRefreshObject.header
 private var isHaveObserver = false
@@ -24,17 +23,9 @@ extension UIScrollView{
         /** 添加header */
         weak var weakSelf = self
 
-        header = LCRefreshHeader.instanceFromNibBundle() as? LCRefreshHeader
-        guard header != nil else{
-            print("Header加载失败")
-            return
-        }
-        header!.center = LCRefreshHeaderCenter
-
-        let headerView = UIView.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
-        headerView.backgroundColor = UIColor.clear
-        headerView.addSubview(header!)
-        weakSelf!.addSubview(headerView)
+        header = LCRefreshHeader.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
+        header?.backgroundColor = UIColor.clear
+        weakSelf!.addSubview(header!)
         
         //添加滑动监测
         addOffsetObserver()
@@ -86,19 +77,11 @@ extension UIScrollView{
     public func addRefreshFooterWithBlock(_ refreshBlock:@escaping ()->Void){
         /** 添加header */
         weak var weakSelf = self
-        footer = LCRefreshFooter.instanceFromNibBundle() as? LCRefreshFooter
-        guard footer != nil else{
-            print("Footer加载失败")
-            return
-        }
-        footer!.center = LCRefreshFooterCenter
         
-        footerView = UIView.init(frame: CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
-        footerView!.backgroundColor = UIColor.clear
-
-        footerView!.addSubview(footer!)
-        footerView!.isHidden = true
-        weakSelf!.addSubview(footerView!)
+        footer = LCRefreshFooter.init(frame: CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
+        footer?.backgroundColor = UIColor.clear
+        footer?.isHidden = true
+        weakSelf!.addSubview(footer!)
         
         //添加滑动监测
         addOffsetObserver()
@@ -134,7 +117,7 @@ extension UIScrollView{
             weakSelf!.setContentOffset(CGPoint(x: 0, y: offSet), animated: true)
         }
         footer!.setStatus(LCRefreshFooterStatus.normal)
-        footerView!.isHidden = true
+        footer!.isHidden = true
         
         lastRefreshObj = LCRefreshObject.footer
     }
@@ -148,8 +131,8 @@ extension UIScrollView{
             return
         }
         let size = weakSelf!.contentSize
-        footerView!.isHidden = false
-        footerView!.frame = CGRect(x: LCRefreshFooterX, y: size.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
+        footer!.isHidden = false
+        footer!.frame = CGRect(x: LCRefreshFooterX, y: size.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
         weakSelf!.contentSize = CGSize(width: size.width, height: size.height + LCRefreshFooterHeight)
         footer!.setStatus(LCRefreshFooterStatus.loadover)
@@ -160,7 +143,7 @@ extension UIScrollView{
         guard footer != nil else{
             return
         }
-        footerView!.isHidden = true
+        footer!.isHidden = true
         footer!.setStatus(LCRefreshFooterStatus.normal)
     }
 }
@@ -235,8 +218,8 @@ extension UIScrollView{
             return
         }
         
-        footerView!.isHidden = false
-        footerView!.frame = CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
+        footer!.isHidden = false
+        footer!.frame = CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
         if offSet > LCRefreshFooterHeight {
             footer!.setStatus(LCRefreshFooterStatus.waitRefresh)
@@ -315,7 +298,7 @@ extension UIView{
     
     class func instanceFromNibBundle() -> UIView? {
         
-        let nib = UINib.init(nibName: String(describing: self), bundle: nil)
+        let nib = UINib.init(nibName: String(describing: self), bundle: Bundle.init(identifier: "LCRefresh"))
         let views = nib.instantiate(withOwner: nil, options: nil)
         
         for view in views {
