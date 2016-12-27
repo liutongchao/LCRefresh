@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'LCRefresh'
-  s.version      = '0.1.3'
+  s.version      = '0.1.5'
   s.summary      = "A Swift refresh tool used on iOS ."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/liutongchao/LCRefresh.git", :tag => "0.1.3" }
+  s.source       = { :git => "https://github.com/liutongchao/LCRefresh.git", :tag => "0.1.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "LCRefreshLib", "LCRefreshLib/*"
+  s.source_files  = "LCRefresh", "LCRefresh/LCRefresh/LCRefresh/*"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.swift"
@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
+  s.resource  = "LCRefresh/LCRefresh/LCRefresh/LCRefresh.bundle"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
