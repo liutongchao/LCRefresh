@@ -17,6 +17,11 @@ class LCRefreshFooter: UIView {
     let activity = UIActivityIndicatorView()
 
     var refreshStatus: LCRefreshFooterStatus?
+    var refreshBlock: (()->Void)?
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,8 +29,18 @@ class LCRefreshFooter: UIView {
         configView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    init(refreshBlock:@escaping (()->Void)) {
+        super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
+        self.backgroundColor = UIColor.clear
+        self.refreshBlock = refreshBlock
+        configView()
+    }
+    
+    init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
+        super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: width, height: LCRefreshFooterHeight))
+        self.backgroundColor = UIColor.clear
+        self.refreshBlock = refreshBlock
+        configView()
     }
     
     func configView() {
@@ -35,7 +50,8 @@ class LCRefreshFooter: UIView {
         contenLab.frame = self.bounds
         contenLab.textAlignment = .center
         contenLab.text = "上拉加载更多数据"
-            
+        contenLab.font = UIFont.systemFont(ofSize: 14)
+    
         activity.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         activity.activityIndicatorViewStyle = .gray
         activity.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)

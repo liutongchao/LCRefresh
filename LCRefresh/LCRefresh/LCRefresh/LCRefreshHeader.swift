@@ -8,12 +8,6 @@
 
 import UIKit
 
-// 图片路径
-//#define MJRefreshSrcName(file) [@"MJRefresh.bundle" stringByAppendingPathComponent:file]
-//#define MJRefreshFrameworkSrcName(file) [@"Frameworks/MJRefresh.framework/MJRefresh.bundle" stringByAppendingPathComponent:file]
-
-//static let MJRefreshSrcName
-
 class LCRefreshHeader: UIView {
         
     let image = UIImageView()
@@ -21,6 +15,11 @@ class LCRefreshHeader: UIView {
     let activity = UIActivityIndicatorView()
     
     var refreshStatus: LCRefreshHeaderStatus?
+    var refreshBlock: (()->Void)?
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +27,20 @@ class LCRefreshHeader: UIView {
         configView()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    init(refreshBlock:@escaping (()->Void)) {
+        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
+        self.backgroundColor = UIColor.clear
+        self.refreshBlock = refreshBlock
+        configView()
+
+    }
+    
+    init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
+        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width:width , height: LCRefreshHeaderHeight))
+        self.backgroundColor = UIColor.clear
+        self.refreshBlock = refreshBlock
+        configView()
+        
     }
     
     func configView() {
@@ -40,6 +51,7 @@ class LCRefreshHeader: UIView {
         contenLab.frame = self.bounds
         contenLab.textAlignment = .center
         contenLab.text = "下拉可以刷新"
+        contenLab.font = UIFont.systemFont(ofSize: 14)
         
         image.frame = CGRect.init(x: 0, y: 0, width: 18, height: 30)
         image.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)
