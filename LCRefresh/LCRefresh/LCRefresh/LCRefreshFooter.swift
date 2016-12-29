@@ -8,35 +8,32 @@
 
 import UIKit
 
-class LCRefreshFooter: UIView {
-//    
-//    @IBOutlet weak var activity: UIActivityIndicatorView!
-//    @IBOutlet weak var contentLab: UILabel!
+public class LCRefreshFooter: UIView {
 
-    let contenLab = UILabel()
-    let activity = UIActivityIndicatorView()
+    public let contenLab = UILabel()
+    public let activity = UIActivityIndicatorView()
 
     var refreshStatus: LCRefreshFooterStatus?
     var refreshBlock: (()->Void)?
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         configView()
     }
     
-    init(refreshBlock:@escaping (()->Void)) {
+    public init(refreshBlock:@escaping (()->Void)) {
         super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
     }
     
-    init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
+    public init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
         super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: width, height: LCRefreshFooterHeight))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock

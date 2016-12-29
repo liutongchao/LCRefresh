@@ -63,7 +63,7 @@ extension UIScrollView{
     }
 
     /** header **/
-    var refreshHeader: LCRefreshHeader? {
+    public var refreshHeader: LCRefreshHeader? {
         get{
             let key = UnsafeRawPointer.init(bitPattern: "refreshHeader".hashValue)
             let result = objc_getAssociatedObject(self, key) as? LCRefreshHeader
@@ -85,7 +85,7 @@ extension UIScrollView{
         
     }
     /** footer **/
-    var refreshFooter: LCRefreshFooter? {
+    public var refreshFooter: LCRefreshFooter? {
         get{
             let key = UnsafeRawPointer.init(bitPattern: "refreshFooter".hashValue)
             let result = objc_getAssociatedObject(self, key) as? LCRefreshFooter

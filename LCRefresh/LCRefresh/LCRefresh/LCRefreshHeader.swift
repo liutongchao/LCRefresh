@@ -8,26 +8,26 @@
 
 import UIKit
 
-class LCRefreshHeader: UIView {
+public class LCRefreshHeader: UIView {
         
-    let image = UIImageView()
-    let contenLab = UILabel()
-    let activity = UIActivityIndicatorView()
+    public let image = UIImageView()
+    public let contenLab = UILabel()
+    public let activity = UIActivityIndicatorView()
     
     var refreshStatus: LCRefreshHeaderStatus?
     var refreshBlock: (()->Void)?
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         configView()
     }
     
-    init(refreshBlock:@escaping (()->Void)) {
+    public init(refreshBlock:@escaping (()->Void)) {
         super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
@@ -35,7 +35,7 @@ class LCRefreshHeader: UIView {
 
     }
     
-    init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
+    public init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
         super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width:width , height: LCRefreshHeaderHeight))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
