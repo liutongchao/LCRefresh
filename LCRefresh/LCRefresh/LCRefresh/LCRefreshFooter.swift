@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LCRefreshFooter: UIView {
+public final class LCRefreshFooter: UIView {
 
     public let contenLab = UILabel()
     public let activity = UIActivityIndicatorView()
