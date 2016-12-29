@@ -88,7 +88,7 @@ public class LCRefreshHeader: UIView {
 
 extension LCRefreshHeader{
     /** 各种状态切换 */
-    fileprivate func setNomalStatus() {
+    func setNomalStatus() {
         if activity.isAnimating {
             activity.stopAnimating()
         }
@@ -102,7 +102,7 @@ extension LCRefreshHeader{
         }) 
     }
     
-    fileprivate func setWaitRefreshStatus() {
+    func setWaitRefreshStatus() {
         if activity.isAnimating {
             activity.stopAnimating()
         }
@@ -117,7 +117,7 @@ extension LCRefreshHeader{
         }) 
     }
     
-    fileprivate func setRefreshingStatus() {
+    func setRefreshingStatus() {
         activity.isHidden = false
         activity.startAnimating()
 

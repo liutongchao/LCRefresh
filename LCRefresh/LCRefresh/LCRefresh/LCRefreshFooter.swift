@@ -79,7 +79,7 @@ public class LCRefreshFooter: UIView {
 
 extension LCRefreshFooter{
     /** 各种状态切换 */
-    fileprivate func setNomalStatus() {
+    func setNomalStatus() {
         if activity.isAnimating {
             activity.stopAnimating()
         }
@@ -87,7 +87,7 @@ extension LCRefreshFooter{
         contenLab.text = "上拉加载更多数据"
     }
     
-    fileprivate func setWaitRefreshStatus() {
+    func setWaitRefreshStatus() {
         if activity.isAnimating {
             activity.stopAnimating()
         }
@@ -96,14 +96,14 @@ extension LCRefreshFooter{
         contenLab.text = "松开加载更多数据"
     }
     
-    fileprivate func setRefreshingStatus() {
+    func setRefreshingStatus() {
         activity.isHidden = false
         activity.startAnimating()
         
         contenLab.text = "正在加载更多数据..."
     }
     
-    fileprivate func setLoadoverStatus() {
+    func setLoadoverStatus() {
         if activity.isAnimating {
             activity.stopAnimating()
         }
