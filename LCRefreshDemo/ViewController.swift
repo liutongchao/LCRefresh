@@ -19,12 +19,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         title = "下拉刷新"
         weak var weakSelf = self
-        let header = LCRefreshHeader.init(refreshBlock: {
+        
+        table.refreshHeader = LCRefreshHeader.init(refreshBlock: {
             print("header")
             weakSelf!.perform(#selector(ViewController.headerRefresh), with: nil, afterDelay: 2)
         })
-        
-        table.refreshHeader = header
+
         table.refreshFooter = LCRefreshFooter.init(refreshBlock: {
             print("footer")
             weakSelf!.perform(#selector(ViewController.footerRefresh), with: nil, afterDelay: 2)

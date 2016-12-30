@@ -13,51 +13,42 @@ extension UIScrollView{
     /** 是否有观察者 **/
     var isHaveObserver: Bool {
         get{
-            let key = UnsafeRawPointer.init(bitPattern: "isHaveObserver".hashValue)
-            let result = objc_getAssociatedObject(self, key)
-            
+            let result = getAssociated(key: "isHaveObserver")
             guard result != nil else {
                 return false
             }
             return result as! Bool
         }
         set{
-            let key = UnsafeRawPointer.init(bitPattern: "isHaveObserver".hashValue)
-            objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setAssociated(key: "isHaveObserver", object: newValue)
         }
         
     }
     /** 当前刷新 header of footer **/
     var refreshObj: LCRefreshObject {
         get{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshObj".hashValue)
-            let result = objc_getAssociatedObject(self, key)
-            
+            let result = getAssociated(key: "refreshObj")
             guard result != nil else {
                 return .none
             }
             return result as! LCRefreshObject
         }
         set{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshObj".hashValue)
-            objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setAssociated(key: "refreshObj", object: newValue)
         }
         
     }
     /** 上次刷新对象 **/
     var lastRefreshObj: LCRefreshObject {
         get{
-            let key = UnsafeRawPointer.init(bitPattern: "lastRefreshObj".hashValue)
-            let result = objc_getAssociatedObject(self, key)
-            
+            let result = getAssociated(key: "lastRefreshObj")
             guard result != nil else {
                 return .none
             }
             return result as! LCRefreshObject
         }
         set{
-            let key = UnsafeRawPointer.init(bitPattern: "lastRefreshObj".hashValue)
-            objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            setAssociated(key: "lastRefreshObj", object: newValue)
         }
         
     }
@@ -65,15 +56,18 @@ extension UIScrollView{
     /** header **/
     public var refreshHeader: LCRefreshHeader? {
         get{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshHeader".hashValue)
-            let result = objc_getAssociatedObject(self, key) as? LCRefreshHeader
+            let result = getAssociated(key: "refreshHeader") as? LCRefreshHeader
+
             return result
         }
         set{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshHeader".hashValue)
-            objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            guard newValue != nil else {
+                print("header 为空")
+                return
+            }
+            setAssociated(key: "refreshHeader", object: newValue!)
             
-            let result = objc_getAssociatedObject(self, key) as? LCRefreshHeader
+            let result = getAssociated(key: "refreshHeader") as? LCRefreshHeader
             if result != nil {
                 self.addSubview(result!)
             }
@@ -87,15 +81,18 @@ extension UIScrollView{
     /** footer **/
     public var refreshFooter: LCRefreshFooter? {
         get{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshFooter".hashValue)
-            let result = objc_getAssociatedObject(self, key) as? LCRefreshFooter
+            let result = getAssociated(key: "refreshFooter") as? LCRefreshFooter
+
             return result
         }
         set{
-            let key = UnsafeRawPointer.init(bitPattern: "refreshFooter".hashValue)
-            objc_setAssociatedObject(self, key, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-            
-            let result = objc_getAssociatedObject(self, key) as? LCRefreshFooter
+            guard newValue != nil else {
+                print("footer 为空")
+                return
+            }
+            setAssociated(key: "refreshFooter", object: newValue!)
+
+            let result = getAssociated(key: "refreshFooter") as? LCRefreshFooter
             if result != nil {
                 result!.isHidden = true
                 self.addSubview(result!)
@@ -106,6 +103,21 @@ extension UIScrollView{
             weakSelf!.panGestureRecognizer.addTarget(weakSelf!, action: #selector(UIScrollView.scrollViewDragging(_:)))
         }
         
+    }
+}
+
+extension UIScrollView{
+    /** 动态绑定相关 **/
+    
+    fileprivate func getAssociated(key:String) -> Any?{
+        let assKey = UnsafeRawPointer.init(bitPattern: key.hashValue)
+        let result = objc_getAssociatedObject(self, assKey)
+        return result
+    }
+    
+    fileprivate func setAssociated(key:String, object:Any){
+        let assKey = UnsafeRawPointer.init(bitPattern: key.hashValue)
+        objc_setAssociatedObject(self, assKey, object, .OBJC_ASSOCIATION_RETAIN)
     }
 }
 
@@ -249,7 +261,7 @@ extension UIScrollView{
                 
             }else{
                 /** 无刷新对象 */
-                self.refreshObj = LCRefreshObject.none
+                self.refreshObj = .none
             }
 
         }
@@ -264,9 +276,9 @@ extension UIScrollView{
             return
         }
         if offSet < -LCRefreshHeaderHeight {
-            self.refreshHeader!.setStatus(LCRefreshHeaderStatus.waitRefresh)
+            self.refreshHeader!.setStatus(.waitRefresh)
         }else{
-            self.refreshHeader!.setStatus(LCRefreshHeaderStatus.normal)
+            self.refreshHeader!.setStatus(.normal)
         }
 
     }
@@ -285,9 +297,9 @@ extension UIScrollView{
         self.refreshFooter!.frame = CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
         if offSet > LCRefreshFooterHeight {
-            self.refreshFooter!.setStatus(LCRefreshFooterStatus.waitRefresh)
+            self.refreshFooter!.setStatus(.waitRefresh)
         }else{
-            self.refreshFooter!.setStatus(LCRefreshFooterStatus.normal)
+            self.refreshFooter!.setStatus(.normal)
         }
 
     }
@@ -295,10 +307,10 @@ extension UIScrollView{
     /** 拖拽相关 */
     func scrollViewDragging(_ pan: UIPanGestureRecognizer){
         if pan.state == .ended{
-            if self.refreshObj == LCRefreshObject.header {
+            if self.refreshObj == .header {
                 draggHeader()
 
-            }else if self.refreshObj == LCRefreshObject.footer{
+            }else if self.refreshObj == .footer{
                 draggFooter()
             }
         }
@@ -314,15 +326,12 @@ extension UIScrollView{
         //在nav下会产生top偏移
         let insetTop = self.contentInset.top;
         
-        if self.refreshHeader!.refreshStatus == LCRefreshHeaderStatus.waitRefresh {
+        if self.refreshHeader!.refreshStatus == .waitRefresh {
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -(LCRefreshHeaderHeight+insetTop)), animated: true)
-            self.refreshHeader!.setStatus(LCRefreshHeaderStatus.refreshing)
+            self.refreshHeader!.setStatus(.refreshing)
             if self.refreshHeader!.refreshBlock != nil {
                 self.refreshHeader!.refreshBlock!()
             }
-        }else if self.refreshHeader!.refreshStatus == LCRefreshHeaderStatus.refreshing{
-            weakSelf!.setContentOffset(CGPoint(x: 0, y: (LCRefreshHeaderHeight+insetTop)), animated: true)
-            
         }
     }
     
@@ -346,7 +355,7 @@ extension UIScrollView{
                 weakSelf!.setContentOffset(CGPoint(x: 0, y: offSet), animated: true)
             }
             /** 切换状态 **/
-            self.refreshFooter!.setStatus(LCRefreshFooterStatus.refreshing)
+            self.refreshFooter!.setStatus(.refreshing)
             
             if self.refreshFooter!.refreshBlock != nil {
                 self.refreshFooter!.refreshBlock!()
