@@ -1,17 +1,24 @@
 # LCRefresh 
 
 使用 `LCRefresh` 非常方便，只需添加一行代码。
+
+######Pod 支持
+>pod 'LCRefresh', '~> 0.1.12'
+
 ######添加下拉刷新 和 上拉加载
 
-    table.addRefreshHeaderWithBlock {
-            print("Header 刷新")
-            //TODO
-     }
+    import LCRefresh
 
-    table.addRefreshFooterWithBlock {
-            print("Footer 刷新")
+    table.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+           print("Header 刷新")
             //TODO
-    }
+     })
+
+    table.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+             print("Footer 刷新")
+            //TODO
+     })
+
 
 ######完成刷新
 
@@ -32,8 +39,8 @@
 
 ######刷新的效果图
 
-![HeaderRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-03286bc8c3fd87a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![FooterRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-8b78a79cd6f9140c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![HeaderRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-a07715badbfa03ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 详细信息请移步到我的博客
 [Swift 让我来告诉你封装下拉刷新多么简单](http://www.jianshu.com/p/725cd8028c8a)
