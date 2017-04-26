@@ -82,6 +82,9 @@ public final class LCRefreshHeader: UIView {
         case .refreshing:
             setRefreshingStatus()
             break
+        case .end:
+            setEndStatus()
+            break
         }
     }
 }
@@ -95,9 +98,10 @@ extension LCRefreshHeader{
         activity.isHidden = true
         
         contenLab.text = "下拉可以刷新"
-        image.isHidden = false
         
-        UIView.animate(withDuration: 0.2, animations: {
+        image.isHidden = false
+
+        UIView.animate(withDuration: 0.3, animations: {
             self.image.transform = CGAffineTransform.identity
         })
     }
@@ -110,9 +114,8 @@ extension LCRefreshHeader{
         
         contenLab.text = "松开立即刷新"
         image.isHidden = false
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.image.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI))
+        UIView.animate(withDuration: 0.3, animations: {
+            self.image.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
             
         })
     }
@@ -123,6 +126,22 @@ extension LCRefreshHeader{
         
         contenLab.text = "正在刷新数据..."
         image.isHidden = true
+        self.image.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+
+    }
+    
+    func setEndStatus() {
+
+        activity.isHidden = false
+        contenLab.text = "完成刷新"
+        image.isHidden = true
+    }
+    
+    func animatIdentity() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.image.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+            
+        })
     }
     
 }

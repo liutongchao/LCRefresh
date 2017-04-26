@@ -13,7 +13,8 @@ enum LCRefreshHeaderStatus {
     case
     normal,
     waitRefresh,
-    refreshing
+    refreshing,
+    end
 }
 /** Footer 刷新状态 */
 enum LCRefreshFooterStatus {

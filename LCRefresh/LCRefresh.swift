@@ -145,7 +145,7 @@ extension UIScrollView{
         if self.lastRefreshObj == .header || self.lastRefreshObj == .none{
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -insetTop), animated: true)
         }
-        self.refreshHeader!.setStatus(.normal)
+        self.refreshHeader!.setStatus(.end)
 
         lastRefreshObj = .header
     }
@@ -275,9 +275,18 @@ extension UIScrollView{
         guard self.refreshHeader!.refreshStatus != .refreshing else{
             return
         }
-        if offSet < -LCRefreshHeaderHeight {
+        //在nav下会产生top偏移
+        let insetTop = self.contentInset.top;
+        if offSet + insetTop < -LCRefreshHeaderHeight {
             self.refreshHeader!.setStatus(.waitRefresh)
-        }else{
+        }else if offSet + insetTop == 0 {
+            
+            self.refreshHeader!.setStatus(.normal)
+
+        }else {
+            guard self.refreshHeader!.refreshStatus != .end else{
+                return
+            }
             self.refreshHeader!.setStatus(.normal)
         }
 
