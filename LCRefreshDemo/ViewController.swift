@@ -12,22 +12,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
     var numRows = 5
-    var PERSON_ID_NUMBER_PROPERTY = UnsafeRawPointer.init(bitPattern: "Instance".hashValue)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "下拉刷新"
-        weak var weakSelf = self
         
-        table.refreshHeader = LCRefreshHeader.init(refreshBlock: {
+        table.refreshHeader = LCRefreshHeader.init(refreshBlock: {[unowned self] in
             print("header")
-            weakSelf!.perform(#selector(ViewController.headerRefresh), with: nil, afterDelay: 2)
+            self.perform(#selector(ViewController.headerRefresh), with: nil, afterDelay: 2)
         })
 
-        table.refreshFooter = LCRefreshFooter.init(refreshBlock: {
+        table.refreshFooter = LCRefreshFooter.init(refreshBlock: {[unowned self] in
             print("footer")
-            weakSelf!.perform(#selector(ViewController.footerRefresh), with: nil, afterDelay: 2)
+            self.perform(#selector(ViewController.footerRefresh), with: nil, afterDelay: 2)
         })
         
         table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
@@ -36,29 +34,26 @@ class ViewController: UIViewController {
     
     func headerRefresh() {
         
-        weak var weakSelf = self
-        
-        if weakSelf!.table.isHeaderRefreshing() {
-            weakSelf!.table.endHeaderRefreshing()
+        if table.isHeaderRefreshing() {
+            table.endHeaderRefreshing()
         }
         
-        weakSelf!.numRows = 5
-        weakSelf!.table.reloadData()
+        numRows = 5
+        table.reloadData()
         
-        weakSelf!.table.resetDataLoad()
+        table.resetDataLoad()
     }
     
     func footerRefresh() {
-        weak var weakSelf = self
         
-        if weakSelf!.table.isFooterRefreshing() {
-            weakSelf!.table.endFooterRefreshing()
+        if table.isFooterRefreshing() {
+            table.endFooterRefreshing()
         }
-        weakSelf!.numRows += 5
-        weakSelf!.table.reloadData()
+        numRows += 5
+        table.reloadData()
         
         if numRows > 20 {
-            weakSelf!.table.setDataLoadover()
+            table.setDataLoadover()
         }
     }
 
@@ -97,6 +92,12 @@ extension ViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let stor = UIStoryboard.init(name: "Main", bundle: nil)
+        let ctr = stor.instantiateViewController(withIdentifier: "ScrollViewController")
+        navigationController?.pushViewController(ctr, animated: true)
     }
 }
 

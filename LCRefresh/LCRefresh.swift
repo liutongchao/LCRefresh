@@ -156,7 +156,13 @@ extension UIScrollView{
             self.addObserver(weakSelf!, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
             isHaveObserver = true;
         }
-        
+    }
+    
+    public func removeOffsetObserver() {
+        if self.isHaveObserver {
+            weak var weakSelf = self
+            self.removeObserver(weakSelf!, forKeyPath: "contentOffset", context: nil)
+        }
     }
 }
 
