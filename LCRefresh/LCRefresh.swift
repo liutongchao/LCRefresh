@@ -252,7 +252,7 @@ extension UIScrollView{
                 self.refreshObj = LCRefreshObject.header
                 
                 
-            }else if currentOffset - maximumOffset > 0 {
+            }else if currentOffset - maximumOffset > 0 && maximumOffset >= scrollHeight {
                 /** 上拉刷新 */
                 
                 guard self.refreshFooter != nil else{
