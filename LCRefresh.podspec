@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'LCRefresh'
-  s.version      = '0.1.15'
+  s.version      = '0.1.16'
   s.summary      = "A Swift refresh tool used on iOS ."
   s.description  = <<-DESC
 		   It is a Swift refresh tool used on iOS . which implement by Swift
@@ -15,14 +15,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
 
   s.source       = { :git => "https://github.com/liutongchao/LCRefresh.git", :tag => s.version }
-  s.source_files  = "LCRefresh/*.swift"
-  #s.exclude_files = "Classes/Exclude"
-  #s.public_header_files = "Classes/**/*.swift"
-  #s.public_header_files = "LCRefresh/LCRefresh/LCRefresh/*.swift"
+  s.source_files  = "Source/*.swift"
 
-  s.resources  = "LCRefresh/LCRefresh.bundle"
-  # s.resources = "Resources/*.png"
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  s.resources  = "Source/LCRefresh.bundle"
 
   s.frameworks = "Foundation", "UIKit"
 

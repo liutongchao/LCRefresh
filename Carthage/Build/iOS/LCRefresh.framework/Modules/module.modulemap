@@ -1,0 +1,10 @@
+framework module LCRefresh {
+  umbrella header "LCRefresh.h"
+
+  export *
+  module * { export * }
+}
+
+module LCRefresh.Swift {
+    header "LCRefresh-Swift.h"
+}

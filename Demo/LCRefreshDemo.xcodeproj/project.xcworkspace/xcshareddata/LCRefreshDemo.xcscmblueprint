@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2025C4BD2C49A4AA43AFEBC7C7C704CDB57808E3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EF8AAB5D48718313968E67A84B50952F6676DAC9" : 9223372036854775807,
+    "2025C4BD2C49A4AA43AFEBC7C7C704CDB57808E3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B5094EE6-1ACF-4A6B-9FF2-245C5E3B6634",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EF8AAB5D48718313968E67A84B50952F6676DAC9" : "..",
+    "2025C4BD2C49A4AA43AFEBC7C7C704CDB57808E3" : "LCRefresh\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LCRefreshDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Demo\/LCRefreshDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/liutongchao\/LCRefresh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2025C4BD2C49A4AA43AFEBC7C7C704CDB57808E3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/liutongchao\/SwiftPos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF8AAB5D48718313968E67A84B50952F6676DAC9"
+    }
+  ]
+}

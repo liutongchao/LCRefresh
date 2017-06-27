@@ -14,13 +14,13 @@
 		57658A631E150D5F00218405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57658A611E150D5F00218405 /* LaunchScreen.storyboard */; };
 		57658A6E1E150D6000218405 /* LCRefreshDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A6D1E150D6000218405 /* LCRefreshDemoTests.swift */; };
 		57658A791E150D6000218405 /* LCRefreshDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A781E150D6000218405 /* LCRefreshDemoUITests.swift */; };
-		57658A9A1E15135700218405 /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57658A941E15135700218405 /* LCRefresh.bundle */; };
-		57658A9B1E15135700218405 /* LCRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A951E15135700218405 /* LCRefresh.swift */; };
-		57658A9C1E15135700218405 /* LCRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A961E15135700218405 /* LCRefreshConst.swift */; };
-		57658A9D1E15135700218405 /* LCRefreshEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A971E15135700218405 /* LCRefreshEnum.swift */; };
-		57658A9E1E15135700218405 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A981E15135700218405 /* LCRefreshFooter.swift */; };
-		57658A9F1E15135700218405 /* LCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A991E15135700218405 /* LCRefreshHeader.swift */; };
 		5799BBAF1EF7619A009D517D /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799BBAE1EF7619A009D517D /* ScrollViewController.swift */; };
+		57DD0C421F0202AF00936C26 /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57DD0C3C1F0202AF00936C26 /* LCRefresh.bundle */; };
+		57DD0C431F0202AF00936C26 /* LCRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C3D1F0202AF00936C26 /* LCRefresh.swift */; };
+		57DD0C441F0202AF00936C26 /* LCRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C3E1F0202AF00936C26 /* LCRefreshConst.swift */; };
+		57DD0C451F0202AF00936C26 /* LCRefreshEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C3F1F0202AF00936C26 /* LCRefreshEnum.swift */; };
+		57DD0C461F0202AF00936C26 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C401F0202AF00936C26 /* LCRefreshFooter.swift */; };
+		57DD0C471F0202AF00936C26 /* LCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C411F0202AF00936C26 /* LCRefreshHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +54,13 @@
 		57658A741E150D6000218405 /* LCRefreshDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCRefreshDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57658A781E150D6000218405 /* LCRefreshDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRefreshDemoUITests.swift; sourceTree = "<group>"; };
 		57658A7A1E150D6000218405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57658A941E15135700218405 /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
-		57658A951E15135700218405 /* LCRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefresh.swift; sourceTree = "<group>"; };
-		57658A961E15135700218405 /* LCRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshConst.swift; sourceTree = "<group>"; };
-		57658A971E15135700218405 /* LCRefreshEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshEnum.swift; sourceTree = "<group>"; };
-		57658A981E15135700218405 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
-		57658A991E15135700218405 /* LCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshHeader.swift; sourceTree = "<group>"; };
 		5799BBAE1EF7619A009D517D /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		57DD0C3C1F0202AF00936C26 /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
+		57DD0C3D1F0202AF00936C26 /* LCRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefresh.swift; sourceTree = "<group>"; };
+		57DD0C3E1F0202AF00936C26 /* LCRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshConst.swift; sourceTree = "<group>"; };
+		57DD0C3F1F0202AF00936C26 /* LCRefreshEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshEnum.swift; sourceTree = "<group>"; };
+		57DD0C401F0202AF00936C26 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
+		57DD0C411F0202AF00936C26 /* LCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		57658A4C1E150D5F00218405 = {
 			isa = PBXGroup;
 			children = (
-				57658A931E15135700218405 /* LCRefresh */,
+				57DD0C3B1F0202AF00936C26 /* Source */,
 				57658A571E150D5F00218405 /* LCRefreshDemo */,
 				57658A6C1E150D6000218405 /* LCRefreshDemoTests */,
 				57658A771E150D6000218405 /* LCRefreshDemoUITests */,
@@ -141,17 +141,18 @@
 			path = LCRefreshDemoUITests;
 			sourceTree = "<group>";
 		};
-		57658A931E15135700218405 /* LCRefresh */ = {
+		57DD0C3B1F0202AF00936C26 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				57658A941E15135700218405 /* LCRefresh.bundle */,
-				57658A951E15135700218405 /* LCRefresh.swift */,
-				57658A961E15135700218405 /* LCRefreshConst.swift */,
-				57658A971E15135700218405 /* LCRefreshEnum.swift */,
-				57658A981E15135700218405 /* LCRefreshFooter.swift */,
-				57658A991E15135700218405 /* LCRefreshHeader.swift */,
+				57DD0C3D1F0202AF00936C26 /* LCRefresh.swift */,
+				57DD0C3E1F0202AF00936C26 /* LCRefreshConst.swift */,
+				57DD0C3F1F0202AF00936C26 /* LCRefreshEnum.swift */,
+				57DD0C401F0202AF00936C26 /* LCRefreshFooter.swift */,
+				57DD0C411F0202AF00936C26 /* LCRefreshHeader.swift */,
+				57DD0C3C1F0202AF00936C26 /* LCRefresh.bundle */,
 			);
-			path = LCRefresh;
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +264,7 @@
 			files = (
 				57658A631E150D5F00218405 /* LaunchScreen.storyboard in Resources */,
 				57658A601E150D5F00218405 /* Assets.xcassets in Resources */,
-				57658A9A1E15135700218405 /* LCRefresh.bundle in Resources */,
+				57DD0C421F0202AF00936C26 /* LCRefresh.bundle in Resources */,
 				57658A5E1E150D5F00218405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +290,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57658A9C1E15135700218405 /* LCRefreshConst.swift in Sources */,
-				57658A9B1E15135700218405 /* LCRefresh.swift in Sources */,
-				57658A9D1E15135700218405 /* LCRefreshEnum.swift in Sources */,
+				57DD0C431F0202AF00936C26 /* LCRefresh.swift in Sources */,
+				57DD0C451F0202AF00936C26 /* LCRefreshEnum.swift in Sources */,
+				57DD0C441F0202AF00936C26 /* LCRefreshConst.swift in Sources */,
+				57DD0C461F0202AF00936C26 /* LCRefreshFooter.swift in Sources */,
 				5799BBAF1EF7619A009D517D /* ScrollViewController.swift in Sources */,
 				57658A5B1E150D5F00218405 /* ViewController.swift in Sources */,
 				57658A591E150D5F00218405 /* AppDelegate.swift in Sources */,
-				57658A9E1E15135700218405 /* LCRefreshFooter.swift in Sources */,
-				57658A9F1E15135700218405 /* LCRefreshHeader.swift in Sources */,
+				57DD0C471F0202AF00936C26 /* LCRefreshHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
