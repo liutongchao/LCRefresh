@@ -1,4 +1,10 @@
 # LCRefresh 
+### `0.1.16` 更新动态
+1、修复数据未充满屏幕，上拉刷新问题
+2、支持Carthage
+注意：在视图将要销毁的时候记得removeobserver
+**********
+
 ### `0.1.15` 更新动态
 1、修复了销毁view崩溃bug
 注意：在视图将要销毁的时候记得removeobserver
@@ -13,7 +19,10 @@
 使用 `LCRefresh` 非常方便，只需添加一行代码。
 
 ######Pod 支持
->pod 'LCRefresh', '~> 0.1.14'
+>pod 'LCRefresh', '~> 0.1.16'
+
+######Carthage 支持
+>github "liutongchao/LCRefresh"
 
 ######添加下拉刷新 和 上拉加载
 
