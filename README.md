@@ -18,13 +18,13 @@
 
 使用 `LCRefresh` 非常方便，只需添加一行代码。
 
-###### Pod 支持
+#### Pod 支持
 >pod 'LCRefresh', '~> 0.1.16'
 
-###### Carthage 支持
+#### Carthage 支持
 >github "liutongchao/LCRefresh"
 
-###### 添加下拉刷新 和 上拉加载
+##### 添加下拉刷新 和 上拉加载
 
     import LCRefresh
 
@@ -39,7 +39,7 @@
      })
 
 
-###### 完成刷新
+##### 完成刷新
 
     weak var weakSelf = self
     if weakSelf!.table.isHeaderRefreshing() {
@@ -50,17 +50,17 @@
         weakSelf!.table.endFooterRefreshing()
     }
 
-###### 数据加载完毕
+##### 数据加载完毕
 
     weakSelf!.table.setDataLoadover()
     
     weakSelf!.table.resetDataLoad()
     
-###### 对象将要销毁时，移除观察者
+##### 对象将要销毁时，移除观察者
 
     table.removeOffsetObserver()
 
-###### 刷新的效果图
+##### 刷新的效果图
 
 
 ![HeaderRefresh.png](http://upload-images.jianshu.io/upload_images/1951020-a07715badbfa03ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
