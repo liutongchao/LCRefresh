@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         })
         
         table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
-        
     }
     
     func headerRefresh() {
