@@ -48,7 +48,7 @@ class ScrollViewController: UIViewController {
         })
     }
 
-    func headerRefresh() {
+    @objc func headerRefresh() {
         
         if scrollView.isHeaderRefreshing() {
             scrollView.endHeaderRefreshing()
@@ -57,7 +57,7 @@ class ScrollViewController: UIViewController {
         scrollView.resetDataLoad()
     }
     
-    func footerRefresh() {
+    @objc func footerRefresh() {
         
         if scrollView.isFooterRefreshing() {
             scrollView.endFooterRefreshing()

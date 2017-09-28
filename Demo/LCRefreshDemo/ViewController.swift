@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
     }
     
-    func headerRefresh() {
+    @objc func headerRefresh() {
         
         if table.isHeaderRefreshing() {
             table.endHeaderRefreshing()
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         table.resetDataLoad()
     }
     
-    func footerRefresh() {
+    @objc func footerRefresh() {
         
         if table.isFooterRefreshing() {
             table.endFooterRefreshing()

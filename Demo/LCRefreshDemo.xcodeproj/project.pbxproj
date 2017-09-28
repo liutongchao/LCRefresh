@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572F257D1F145E1F0060E72E /* LCRefreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F257C1F145E1F0060E72E /* LCRefreshProtocol.swift */; };
+		572F257F1F1467500060E72E /* LCBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572F257E1F1467500060E72E /* LCBaseRefreshHeader.swift */; };
 		57658A591E150D5F00218405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A581E150D5F00218405 /* AppDelegate.swift */; };
 		57658A5B1E150D5F00218405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A5A1E150D5F00218405 /* ViewController.swift */; };
 		57658A5E1E150D5F00218405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57658A5C1E150D5F00218405 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		572F257C1F145E1F0060E72E /* LCRefreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshProtocol.swift; sourceTree = "<group>"; };
+		572F257E1F1467500060E72E /* LCBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBaseRefreshHeader.swift; sourceTree = "<group>"; };
 		57658A551E150D5F00218405 /* LCRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57658A581E150D5F00218405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57658A5A1E150D5F00218405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,11 +149,13 @@
 			isa = PBXGroup;
 			children = (
 				57DD0C3D1F0202AF00936C26 /* LCRefresh.swift */,
+				572F257C1F145E1F0060E72E /* LCRefreshProtocol.swift */,
 				57DD0C3E1F0202AF00936C26 /* LCRefreshConst.swift */,
 				57DD0C3F1F0202AF00936C26 /* LCRefreshEnum.swift */,
 				57DD0C401F0202AF00936C26 /* LCRefreshFooter.swift */,
 				57DD0C411F0202AF00936C26 /* LCRefreshHeader.swift */,
 				57DD0C3C1F0202AF00936C26 /* LCRefresh.bundle */,
+				572F257E1F1467500060E72E /* LCBaseRefreshHeader.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -218,20 +224,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "北京京师乐学教育科技有限公司";
 				TargetAttributes = {
 					57658A541E150D5F00218405 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FEN4DYVP62;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					57658A681E150D6000218405 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 57658A541E150D5F00218405;
 					};
 					57658A731E150D6000218405 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 57658A541E150D5F00218405;
 					};
@@ -292,11 +302,13 @@
 			files = (
 				57DD0C431F0202AF00936C26 /* LCRefresh.swift in Sources */,
 				57DD0C451F0202AF00936C26 /* LCRefreshEnum.swift in Sources */,
+				572F257F1F1467500060E72E /* LCBaseRefreshHeader.swift in Sources */,
 				57DD0C441F0202AF00936C26 /* LCRefreshConst.swift in Sources */,
 				57DD0C461F0202AF00936C26 /* LCRefreshFooter.swift in Sources */,
 				5799BBAF1EF7619A009D517D /* ScrollViewController.swift in Sources */,
 				57658A5B1E150D5F00218405 /* ViewController.swift in Sources */,
 				57658A591E150D5F00218405 /* AppDelegate.swift in Sources */,
+				572F257D1F145E1F0060E72E /* LCRefreshProtocol.swift in Sources */,
 				57DD0C471F0202AF00936C26 /* LCRefreshHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +373,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -369,7 +383,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -410,7 +428,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -418,7 +438,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -447,11 +471,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FEN4DYVP62;
 				INFOPLIST_FILE = LCRefreshDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -459,11 +485,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FEN4DYVP62;
 				INFOPLIST_FILE = LCRefreshDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -476,7 +504,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LCRefreshDemo.app/LCRefreshDemo";
 			};
 			name = Debug;
@@ -490,7 +519,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LCRefreshDemo.app/LCRefreshDemo";
 			};
 			name = Release;
@@ -503,7 +533,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = LCRefreshDemo;
 			};
 			name = Debug;
@@ -516,7 +547,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LX.LCRefreshDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = LCRefreshDemo;
 			};
 			name = Release;

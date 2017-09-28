@@ -52,9 +52,9 @@ extension UIScrollView{
         }
         
     }
-
+    
     /** header **/
-    public var refreshHeader: LCRefreshHeader? {
+    public var refreshHeader: LCBaseRefreshHeader? {
         get{
             let result = getAssociated(key: "refreshHeader") as? LCRefreshHeader
 
@@ -111,13 +111,13 @@ extension UIScrollView{
     
     fileprivate func getAssociated(key:String) -> Any?{
         let assKey = UnsafeRawPointer.init(bitPattern: key.hashValue)
-        let result = objc_getAssociatedObject(self, assKey)
+        let result = objc_getAssociatedObject(self, assKey!)
         return result
     }
     
     fileprivate func setAssociated(key:String, object:Any){
         let assKey = UnsafeRawPointer.init(bitPattern: key.hashValue)
-        objc_setAssociatedObject(self, assKey, object, .OBJC_ASSOCIATION_RETAIN)
+        objc_setAssociatedObject(self, assKey!, object, .OBJC_ASSOCIATION_RETAIN)
     }
 }
 
@@ -145,7 +145,7 @@ extension UIScrollView{
         if self.lastRefreshObj == .header || self.lastRefreshObj == .none{
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -insetTop), animated: true)
         }
-        self.refreshHeader!.setStatus(.end)
+        self.refreshHeader!.setRefreshStatus(status: .end)
 
         lastRefreshObj = .header
     }
@@ -284,16 +284,16 @@ extension UIScrollView{
         //在nav下会产生top偏移
         let insetTop = self.contentInset.top;
         if offSet + insetTop < -LCRefreshHeaderHeight {
-            self.refreshHeader!.setStatus(.waitRefresh)
+            self.refreshHeader!.setRefreshStatus(status: .waitRefresh)
         }else if offSet + insetTop == 0 {
             
-            self.refreshHeader!.setStatus(.normal)
+            self.refreshHeader!.setRefreshStatus(status: .normal)
 
         }else {
             guard self.refreshHeader!.refreshStatus != .end else{
                 return
             }
-            self.refreshHeader!.setStatus(.normal)
+            self.refreshHeader!.setRefreshStatus(status: .normal)
         }
 
     }
@@ -320,7 +320,7 @@ extension UIScrollView{
     }
     
     /** 拖拽相关 */
-    func scrollViewDragging(_ pan: UIPanGestureRecognizer){
+    @objc func scrollViewDragging(_ pan: UIPanGestureRecognizer){
         if pan.state == .ended{
             if self.refreshObj == .header {
                 draggHeader()
@@ -343,7 +343,7 @@ extension UIScrollView{
         
         if self.refreshHeader!.refreshStatus == .waitRefresh {
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -(LCRefreshHeaderHeight+insetTop)), animated: true)
-            self.refreshHeader!.setStatus(.refreshing)
+            self.refreshHeader!.setRefreshStatus(status: .refreshing)
             if self.refreshHeader!.refreshBlock != nil {
                 self.refreshHeader!.refreshBlock!()
             }
