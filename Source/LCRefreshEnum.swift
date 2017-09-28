@@ -9,7 +9,7 @@
 import Foundation
 
 /** Header 刷新状态 */
-enum LCRefreshHeaderStatus {
+public enum LCRefreshHeaderStatus {
     case
     normal,
     waitRefresh,
@@ -17,7 +17,7 @@ enum LCRefreshHeaderStatus {
     end
 }
 /** Footer 刷新状态 */
-enum LCRefreshFooterStatus {
+public enum LCRefreshFooterStatus {
     case
     normal,
     waitRefresh,
