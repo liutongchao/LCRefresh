@@ -31,6 +31,10 @@ class ViewController: UIViewController {
         table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
     }
     
+    deinit {
+        
+    }
+    
     @objc func headerRefresh() {
         
         if table.isHeaderRefreshing() {
@@ -90,7 +94,7 @@ extension ViewController:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30;
+        return 20;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

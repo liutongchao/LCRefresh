@@ -56,7 +56,7 @@ extension UIScrollView{
     /** header **/
     public var refreshHeader: LCBaseRefreshHeader? {
         get{
-            let result = getAssociated(key: "refreshHeader") as? LCRefreshHeader
+            let result = getAssociated(key: "refreshHeader") as? LCBaseRefreshHeader
 
             return result
         }
@@ -67,7 +67,7 @@ extension UIScrollView{
             }
             setAssociated(key: "refreshHeader", object: newValue!)
             
-            let result = getAssociated(key: "refreshHeader") as? LCRefreshHeader
+            let result = getAssociated(key: "refreshHeader") as? LCBaseRefreshHeader
             if result != nil {
                 self.addSubview(result!)
             }
@@ -94,7 +94,6 @@ extension UIScrollView{
 
             let result = getAssociated(key: "refreshFooter") as? LCRefreshFooter
             if result != nil {
-                result!.isHidden = true
                 self.addSubview(result!)
             }
             //添加滑动监测
@@ -141,7 +140,10 @@ extension UIScrollView{
         weak var weakSelf = self
 
         //在nav下会产生top偏移
-        let insetTop = self.contentInset.top;
+        var insetTop = self.contentInset.top
+        if #available(iOS 11.0, *) {//适配iOS 11
+            insetTop = self.adjustedContentInset.top
+        }
         if self.lastRefreshObj == .header || self.lastRefreshObj == .none{
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -insetTop), animated: true)
         }
@@ -162,6 +164,7 @@ extension UIScrollView{
         if self.isHaveObserver {
             weak var weakSelf = self
             self.removeObserver(weakSelf!, forKeyPath: "contentOffset", context: nil)
+            isHaveObserver = false
         }
     }
 }
@@ -196,7 +199,6 @@ extension UIScrollView{
             weakSelf!.setContentOffset(CGPoint(x: 0, y: offSet), animated: true)
         }
         self.refreshFooter!.setStatus(LCRefreshFooterStatus.normal)
-        self.refreshFooter!.isHidden = true
         
         lastRefreshObj = .footer
     }
@@ -210,11 +212,17 @@ extension UIScrollView{
             return
         }
         let size = weakSelf!.contentSize
-        self.refreshFooter!.isHidden = false
         self.refreshFooter!.frame = CGRect(x: LCRefreshFooterX, y: size.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
         
-        weakSelf!.contentSize = CGSize(width: size.width, height: size.height + LCRefreshFooterHeight)
+//        weakSelf!.contentSize = CGSize(width: size.width, height: size.height + LCRefreshFooterHeight)
         self.refreshFooter!.setStatus(.loadover)
+        
+        if size.height < weakSelf!.bounds.size.height {
+            self.refreshFooter!.isHidden = true
+        }else{
+            self.refreshFooter!.isHidden = false
+        }
+        
     }
     
     /** 初始化状态 **/
@@ -234,7 +242,14 @@ extension UIScrollView{
         if keyPath == "contentOffset" {
             let offSet = self.contentOffset.y
             let scrollHeight = self.bounds.size.height
-            let inset = self.contentInset
+            var inset = self.contentInset
+            if #available(iOS 11.0, *) {//适配iOS 11
+                inset = self.adjustedContentInset
+            }
+            
+            print("offSet:\(offSet)")
+            print("inset:\(inset)")
+
             var currentOffset = offSet + scrollHeight - inset.bottom
             let maximumOffset = self.contentSize.height
             
@@ -251,10 +266,8 @@ extension UIScrollView{
                 scrollHeader(offSet)
                 self.refreshObj = LCRefreshObject.header
                 
-                
             }else if currentOffset - maximumOffset > 0 && maximumOffset >= scrollHeight {
                 /** 上拉刷新 */
-                
                 guard self.refreshFooter != nil else{
                     return
                 }
@@ -266,6 +279,9 @@ extension UIScrollView{
                 self.refreshObj = .footer
                 
             }else{
+                weak var weakSelf = self
+                self.refreshFooter!.frame = CGRect(x: LCRefreshFooterX, y: weakSelf!.contentSize.height, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight)
+
                 /** 无刷新对象 */
                 self.refreshObj = .none
             }
@@ -282,7 +298,10 @@ extension UIScrollView{
             return
         }
         //在nav下会产生top偏移
-        let insetTop = self.contentInset.top;
+        var insetTop = self.contentInset.top
+        if #available(iOS 11.0, *) {//适配iOS 11
+            insetTop = self.adjustedContentInset.top
+        }
         if offSet + insetTop < -LCRefreshHeaderHeight {
             self.refreshHeader!.setRefreshStatus(status: .waitRefresh)
         }else if offSet + insetTop == 0 {
@@ -304,7 +323,7 @@ extension UIScrollView{
             print("Footer加载失败")
             return
         }
-        guard self.refreshFooter!.refreshStatus != .refreshing else{
+        guard self.refreshFooter!.refreshStatus != .refreshing || self.refreshFooter!.refreshStatus != .loadover else{
             return
         }
         
@@ -339,7 +358,10 @@ extension UIScrollView{
             return
         }
         //在nav下会产生top偏移
-        let insetTop = self.contentInset.top;
+        var insetTop = self.contentInset.top
+        if #available(iOS 11.0, *) {//适配iOS 11
+            insetTop = self.adjustedContentInset.top
+        }
         
         if self.refreshHeader!.refreshStatus == .waitRefresh {
             weakSelf!.setContentOffset(CGPoint(x: 0, y: -(LCRefreshHeaderHeight+insetTop)), animated: true)

@@ -21,6 +21,10 @@ class ScrollViewController: UIViewController {
 
     }
     
+    deinit {
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
