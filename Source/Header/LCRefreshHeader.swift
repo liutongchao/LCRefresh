@@ -14,11 +14,6 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
     public let contenLab = UILabel()
     public let activity = UIActivityIndicatorView()
     
-//    override var refreshStatus: LCRefreshHeaderStatus?
-    
-//    var refreshStatus: LCRefreshHeaderStatus?
-//    var refreshBlock: (()->Void)?
-    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -91,23 +86,6 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
         
     }
     
-//    func setStatus(_ status:LCRefreshHeaderStatus){
-//        refreshStatus = status
-//        switch status {
-//        case .normal:
-//            setNomalStatus()
-//            break
-//        case .waitRefresh:
-//            setWaitRefreshStatus()
-//            break
-//        case .refreshing:
-//            setRefreshingStatus()
-//            break
-//        case .end:
-//            setEndStatus()
-//            break
-//        }
-//    }
 }
 
 extension LCRefreshHeader{
