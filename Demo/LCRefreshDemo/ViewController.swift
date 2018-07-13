@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var table: UITableView!
-    var numRows = 5
+    @IBOutlet weak var table: MyTableView!
+    var numRows = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,11 @@ class ViewController: UIViewController {
             self.perform(#selector(ViewController.footerRefresh), with: nil, afterDelay: 2)
         })
         
-        table.tableFooterView = UIView.init(frame: CGRect(x: 0, y: 0, width: 300, height: 5))
+        table.tableFooterView = UIView()
     }
     
     deinit {
-        
+        print("ViewController 移除")
     }
     
     @objc func headerRefresh() {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             table.endHeaderRefreshing()
         }
         
-        numRows = 5
+        numRows = 10
         table.reloadData()
         
         table.resetDataLoad()
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         numRows += 5
         table.reloadData()
         
-        if numRows > 20 {
+        if numRows > 30 {
             table.setDataLoadover()
         }
     }
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 
 extension ViewController:UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,7 +99,7 @@ extension ViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let stor = UIStoryboard.init(name: "Main", bundle: nil)
-        let ctr = stor.instantiateViewController(withIdentifier: "ScrollViewController")
+        let ctr = stor.instantiateViewController(withIdentifier: "ViewController")
         navigationController?.pushViewController(ctr, animated: true)
     }
 }

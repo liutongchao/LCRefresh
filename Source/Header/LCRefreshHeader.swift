@@ -25,7 +25,7 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
     }
     
     public init(refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Header.X, y: LCRefresh.Const.Header.Y, width: LCRefresh.Const.Common.screenWidth, height: LCRefresh.Const.Header.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
@@ -33,7 +33,7 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
     }
     
     public init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width:width , height: LCRefreshHeaderHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Header.X, y: LCRefresh.Const.Header.Y, width:width , height: LCRefresh.Const.Header.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
@@ -51,7 +51,7 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
         contenLab.font = UIFont.systemFont(ofSize: 14)
         
         image.frame = CGRect.init(x: 0, y: 0, width: 18, height: 30)
-        image.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)
+        image.center = CGPoint.init(x: 40, y: LCRefresh.Const.Header.height/2)
         
         let bundleImage = UIImage.init(named: "LCRefresh.bundle/lc_refresh_down.png")
         if bundleImage != nil {
@@ -63,7 +63,7 @@ public final class LCRefreshHeader: LCBaseRefreshHeader {
         
         activity.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         activity.activityIndicatorViewStyle = .gray
-        activity.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)
+        activity.center = CGPoint.init(x: 40, y: LCRefresh.Const.Header.height/2)
         
     }
     

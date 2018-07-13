@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572277CE20F8534E004E6D12 /* LCBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277CD20F8534E004E6D12 /* LCBaseRefreshHeader.swift */; };
+		572277D020F880BC004E6D12 /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277CF20F880BC004E6D12 /* MyTableView.swift */; };
 		57658A591E150D5F00218405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A581E150D5F00218405 /* AppDelegate.swift */; };
 		57658A5B1E150D5F00218405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57658A5A1E150D5F00218405 /* ViewController.swift */; };
 		57658A5E1E150D5F00218405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57658A5C1E150D5F00218405 /* Main.storyboard */; };
@@ -21,7 +23,6 @@
 		57B1EFCA1FCE8B7D008AD789 /* LCRefreshEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B1EFC11FCE8B7D008AD789 /* LCRefreshEnum.swift */; };
 		57B1EFCB1FCE8B7D008AD789 /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57B1EFC21FCE8B7D008AD789 /* LCRefresh.bundle */; };
 		57B1EFCC1FCE8B7D008AD789 /* LCRefreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B1EFC31FCE8B7D008AD789 /* LCRefreshProtocol.swift */; };
-		57B1EFCD1FCE8B7D008AD789 /* LCBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B1EFC41FCE8B7D008AD789 /* LCBaseRefreshHeader.swift */; };
 		57B1EFCE1FCE8B7D008AD789 /* LCRefreshGifHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B1EFC51FCE8B7D008AD789 /* LCRefreshGifHeader.swift */; };
 		57B1EFCF1FCE8B7D008AD789 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B1EFC61FCE8B7D008AD789 /* LCRefreshFooter.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		572277CD20F8534E004E6D12 /* LCBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBaseRefreshHeader.swift; sourceTree = "<group>"; };
+		572277CF20F880BC004E6D12 /* MyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
 		57658A551E150D5F00218405 /* LCRefreshDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCRefreshDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57658A581E150D5F00218405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57658A5A1E150D5F00218405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		57B1EFC11FCE8B7D008AD789 /* LCRefreshEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshEnum.swift; sourceTree = "<group>"; };
 		57B1EFC21FCE8B7D008AD789 /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
 		57B1EFC31FCE8B7D008AD789 /* LCRefreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshProtocol.swift; sourceTree = "<group>"; };
-		57B1EFC41FCE8B7D008AD789 /* LCBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBaseRefreshHeader.swift; sourceTree = "<group>"; };
 		57B1EFC51FCE8B7D008AD789 /* LCRefreshGifHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshGifHeader.swift; sourceTree = "<group>"; };
 		57B1EFC61FCE8B7D008AD789 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 		57658A571E150D5F00218405 /* LCRefreshDemo */ = {
 			isa = PBXGroup;
 			children = (
+				572277CF20F880BC004E6D12 /* MyTableView.swift */,
 				57658A581E150D5F00218405 /* AppDelegate.swift */,
 				57658A5A1E150D5F00218405 /* ViewController.swift */,
 				5799BBAE1EF7619A009D517D /* ScrollViewController.swift */,
@@ -173,7 +176,7 @@
 		57B1EFD11FCE8B9B008AD789 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				57B1EFC41FCE8B7D008AD789 /* LCBaseRefreshHeader.swift */,
+				572277CD20F8534E004E6D12 /* LCBaseRefreshHeader.swift */,
 				57B1EFBF1FCE8B7D008AD789 /* LCRefreshHeader.swift */,
 				57B1EFC51FCE8B7D008AD789 /* LCRefreshGifHeader.swift */,
 			);
@@ -251,12 +254,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "北京京师乐学教育科技有限公司";
 				TargetAttributes = {
 					57658A541E150D5F00218405 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FEN4DYVP62;
+						DevelopmentTeam = 7N9J7RX364;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -328,14 +331,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B1EFC91FCE8B7D008AD789 /* LCRefresh.swift in Sources */,
+				572277CE20F8534E004E6D12 /* LCBaseRefreshHeader.swift in Sources */,
 				57B1EFC71FCE8B7D008AD789 /* LCRefreshConst.swift in Sources */,
 				57B1EFCF1FCE8B7D008AD789 /* LCRefreshFooter.swift in Sources */,
 				57B1EFCE1FCE8B7D008AD789 /* LCRefreshGifHeader.swift in Sources */,
 				57B1EFCC1FCE8B7D008AD789 /* LCRefreshProtocol.swift in Sources */,
 				5799BBAF1EF7619A009D517D /* ScrollViewController.swift in Sources */,
 				57658A5B1E150D5F00218405 /* ViewController.swift in Sources */,
-				57B1EFCD1FCE8B7D008AD789 /* LCBaseRefreshHeader.swift in Sources */,
 				57658A591E150D5F00218405 /* AppDelegate.swift in Sources */,
+				572277D020F880BC004E6D12 /* MyTableView.swift in Sources */,
 				57B1EFCA1FCE8B7D008AD789 /* LCRefreshEnum.swift in Sources */,
 				57B1EFC81FCE8B7D008AD789 /* LCRefreshHeader.swift in Sources */,
 			);
@@ -405,6 +409,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -412,6 +417,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -460,6 +466,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -467,6 +474,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -499,7 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FEN4DYVP62;
+				DEVELOPMENT_TEAM = 7N9J7RX364;
 				INFOPLIST_FILE = LCRefreshDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -514,7 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FEN4DYVP62;
+				DEVELOPMENT_TEAM = 7N9J7RX364;
 				INFOPLIST_FILE = LCRefreshDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

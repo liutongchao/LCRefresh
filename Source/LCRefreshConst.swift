@@ -8,18 +8,32 @@
 
 import UIKit
 
-let LCRefreshScreenWidth: CGFloat = UIScreen.main.bounds.width
-let LCRefreshScreenHeight: CGFloat = UIScreen.main.bounds.height
-
-let LCRefreshHeaderX: CGFloat = 0
-let LCRefreshHeaderY: CGFloat = -50
-let LCRefreshHeaderWidth: CGFloat = 300
-let LCRefreshHeaderHeight: CGFloat = 50
-let LCRefreshHeaderCenter = CGPoint(x: UIScreen.main.bounds.width / 2, y: LCRefreshHeaderHeight / 2)
-
-let LCRefreshFooterX: CGFloat = 0
-let LCRefreshFooterY: CGFloat = 0
-let LCRefreshFooterWidth: CGFloat = 300
-let LCRefreshFooterHeight: CGFloat = 50
-let LCRefreshFooterCenter = CGPoint(x: UIScreen.main.bounds.width / 2, y: LCRefreshHeaderHeight / 2)
+struct LCRefresh {
+    struct Const {
+        struct Common {
+            static let screenWidth: CGFloat = UIScreen.main.bounds.width
+            static let screenHeight: CGFloat = UIScreen.main.bounds.height
+        }
+        struct Header {
+            static let X: CGFloat = 0
+            static let Y: CGFloat = -50
+            static let width: CGFloat = 300
+            static let height: CGFloat = 50
+        }
+        
+        struct Footer {
+            static let X: CGFloat = 0
+            static let Y: CGFloat = 0
+            static let width: CGFloat = 300
+            static let height: CGFloat = 50
+        }
+    }
+    
+    struct Object {
+        static let current = "LCRefreshCurrentObject"
+        static let last = "LCRefreshLastObject"
+        static let header = "LCRefreshHeader"
+        static let footer = "LCRefreshFooter"
+    }
+}
 

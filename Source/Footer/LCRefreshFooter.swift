@@ -27,14 +27,14 @@ public final class LCRefreshFooter: UIView {
     }
     
     public init(refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: LCRefreshScreenWidth, height: LCRefreshFooterHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Footer.X, y: LCRefresh.Const.Footer.Y, width: LCRefresh.Const.Common.screenWidth, height: LCRefresh.Const.Footer.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
     }
     
     public init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshFooterX, y: LCRefreshFooterY, width: width, height: LCRefreshFooterHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Footer.X, y: LCRefresh.Const.Footer.Y, width: width, height: LCRefresh.Const.Footer.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
@@ -51,7 +51,7 @@ public final class LCRefreshFooter: UIView {
     
         activity.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         activity.activityIndicatorViewStyle = .gray
-        activity.center = CGPoint.init(x: 40, y: LCRefreshHeaderHeight/2)
+        activity.center = CGPoint.init(x: 40, y: LCRefresh.Const.Header.height/2)
         
     }
 

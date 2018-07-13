@@ -23,7 +23,7 @@ public final class LCRefreshGifHeader: LCBaseRefreshHeader {
     }
     
     public init(refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width: LCRefreshScreenWidth, height: LCRefreshHeaderHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Header.X, y: LCRefresh.Const.Header.Y, width: LCRefresh.Const.Common.screenWidth, height: LCRefresh.Const.Header.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
@@ -31,7 +31,7 @@ public final class LCRefreshGifHeader: LCBaseRefreshHeader {
     }
     
     public init(width:CGFloat ,refreshBlock:@escaping (()->Void)) {
-        super.init(frame: CGRect(x: LCRefreshHeaderX, y: LCRefreshHeaderY, width:width , height: LCRefreshHeaderHeight))
+        super.init(frame: CGRect(x: LCRefresh.Const.Header.X, y: LCRefresh.Const.Header.Y, width:width , height: LCRefresh.Const.Header.height))
         self.backgroundColor = UIColor.clear
         self.refreshBlock = refreshBlock
         configView()
@@ -42,7 +42,7 @@ public final class LCRefreshGifHeader: LCBaseRefreshHeader {
         addSubview(image)
         
         image.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-        image.center = CGPoint.init(x: LCRefreshScreenWidth/2, y: LCRefreshHeaderHeight/2)
+        image.center = CGPoint.init(x: LCRefresh.Const.Common.screenWidth/2, y: LCRefresh.Const.Header.height/2)
         image.contentMode = .scaleAspectFit
         
         let bundle = "LCRefresh.bundle/"
