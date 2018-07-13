@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572277DA20F8964C004E6D12 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277D220F8964C004E6D12 /* LCRefreshFooter.swift */; };
+		572277DB20F8964C004E6D12 /* LCRefreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277D320F8964C004E6D12 /* LCRefreshProtocol.swift */; };
+		572277DC20F8964C004E6D12 /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 572277D520F8964C004E6D12 /* LCRefresh.bundle */; };
+		572277DD20F8964C004E6D12 /* LCBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277D720F8964C004E6D12 /* LCBaseRefreshHeader.swift */; };
+		572277DE20F8964C004E6D12 /* LCRefreshGifHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277D820F8964C004E6D12 /* LCRefreshGifHeader.swift */; };
+		572277DF20F8964C004E6D12 /* LCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572277D920F8964C004E6D12 /* LCRefreshHeader.swift */; };
 		57DD0C281F0201FF00936C26 /* LCRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DD0C261F0201FF00936C26 /* LCRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57DD0C4F1F02040700936C26 /* LCRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57DD0C491F02040700936C26 /* LCRefresh.bundle */; };
 		57DD0C501F02040700936C26 /* LCRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C4A1F02040700936C26 /* LCRefresh.swift */; };
 		57DD0C511F02040700936C26 /* LCRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C4B1F02040700936C26 /* LCRefreshConst.swift */; };
 		57DD0C521F02040700936C26 /* LCRefreshEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C4C1F02040700936C26 /* LCRefreshEnum.swift */; };
-		57DD0C531F02040700936C26 /* LCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C4D1F02040700936C26 /* LCRefreshFooter.swift */; };
-		57DD0C541F02040700936C26 /* LCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DD0C4E1F02040700936C26 /* LCRefreshHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		572277D220F8964C004E6D12 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
+		572277D320F8964C004E6D12 /* LCRefreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshProtocol.swift; sourceTree = "<group>"; };
+		572277D520F8964C004E6D12 /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
+		572277D720F8964C004E6D12 /* LCBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBaseRefreshHeader.swift; sourceTree = "<group>"; };
+		572277D820F8964C004E6D12 /* LCRefreshGifHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshGifHeader.swift; sourceTree = "<group>"; };
+		572277D920F8964C004E6D12 /* LCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshHeader.swift; sourceTree = "<group>"; };
 		57DD0C231F0201FF00936C26 /* LCRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LCRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57DD0C261F0201FF00936C26 /* LCRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRefresh.h; sourceTree = "<group>"; };
 		57DD0C271F0201FF00936C26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57DD0C491F02040700936C26 /* LCRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCRefresh.bundle; sourceTree = "<group>"; };
 		57DD0C4A1F02040700936C26 /* LCRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefresh.swift; sourceTree = "<group>"; };
 		57DD0C4B1F02040700936C26 /* LCRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshConst.swift; sourceTree = "<group>"; };
 		57DD0C4C1F02040700936C26 /* LCRefreshEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshEnum.swift; sourceTree = "<group>"; };
-		57DD0C4D1F02040700936C26 /* LCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshFooter.swift; sourceTree = "<group>"; };
-		57DD0C4E1F02040700936C26 /* LCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCRefreshHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		572277D120F8964C004E6D12 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				572277D220F8964C004E6D12 /* LCRefreshFooter.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		572277D420F8964C004E6D12 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				572277D520F8964C004E6D12 /* LCRefresh.bundle */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		572277D620F8964C004E6D12 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				572277D720F8964C004E6D12 /* LCBaseRefreshHeader.swift */,
+				572277D820F8964C004E6D12 /* LCRefreshGifHeader.swift */,
+				572277D920F8964C004E6D12 /* LCRefreshHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		57DD0C191F0201FF00936C26 = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +100,13 @@
 		57DD0C481F02040700936C26 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				57DD0C491F02040700936C26 /* LCRefresh.bundle */,
+				572277D420F8964C004E6D12 /* Bundle */,
+				572277D120F8964C004E6D12 /* Footer */,
+				572277D620F8964C004E6D12 /* Header */,
+				572277D320F8964C004E6D12 /* LCRefreshProtocol.swift */,
 				57DD0C4A1F02040700936C26 /* LCRefresh.swift */,
 				57DD0C4B1F02040700936C26 /* LCRefreshConst.swift */,
 				57DD0C4C1F02040700936C26 /* LCRefreshEnum.swift */,
-				57DD0C4D1F02040700936C26 /* LCRefreshFooter.swift */,
-				57DD0C4E1F02040700936C26 /* LCRefreshHeader.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -116,12 +149,13 @@
 		57DD0C1A1F0201FF00936C26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "北京京师乐学教育科技有限公司";
 				TargetAttributes = {
 					57DD0C221F0201FF00936C26 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = FEN4DYVP62;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -148,7 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57DD0C4F1F02040700936C26 /* LCRefresh.bundle in Resources */,
+				572277DC20F8964C004E6D12 /* LCRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,11 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				572277DB20F8964C004E6D12 /* LCRefreshProtocol.swift in Sources */,
 				57DD0C511F02040700936C26 /* LCRefreshConst.swift in Sources */,
-				57DD0C531F02040700936C26 /* LCRefreshFooter.swift in Sources */,
+				572277DD20F8964C004E6D12 /* LCBaseRefreshHeader.swift in Sources */,
+				572277DA20F8964C004E6D12 /* LCRefreshFooter.swift in Sources */,
+				572277DE20F8964C004E6D12 /* LCRefreshGifHeader.swift in Sources */,
 				57DD0C521F02040700936C26 /* LCRefreshEnum.swift in Sources */,
 				57DD0C501F02040700936C26 /* LCRefresh.swift in Sources */,
-				57DD0C541F02040700936C26 /* LCRefreshHeader.swift in Sources */,
+				572277DF20F8964C004E6D12 /* LCRefreshHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +221,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -191,6 +229,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -244,6 +283,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -251,6 +291,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -299,7 +340,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.isprint.LCRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -319,7 +361,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.isprint.LCRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

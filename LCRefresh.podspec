@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'LCRefresh'
-  s.version      = '0.1.16'
+  s.version      = '0.2.0'
   s.summary      = "A Swift refresh tool used on iOS ."
   s.description  = <<-DESC
 		   It is a Swift refresh tool used on iOS . which implement by Swift
