@@ -31,7 +31,7 @@
 >github "liutongchao/LCRefresh"
 
 ##### 添加下拉刷新 和 上拉加载
-
+```swift
     import LCRefresh
 
     table.refreshHeader = LCRefreshHeader.init(refreshBlock: {
@@ -43,10 +43,10 @@
              print("Footer 刷新")
             //TODO
      })
-
+```
 
 ##### 完成刷新
-
+```swift
     weak var weakSelf = self
     if weakSelf!.table.isHeaderRefreshing() {
         weakSelf!.table.endHeaderRefreshing()
@@ -55,17 +55,17 @@
     if weakSelf!.table.isFooterRefreshing() {
         weakSelf!.table.endFooterRefreshing()
     }
-
+```
 ##### 数据加载完毕
-
+```swift
     weakSelf!.table.setDataLoadover()
     
     weakSelf!.table.resetDataLoad()
-    
+```
 ##### 对象将要销毁时，移除观察者
-
+```
     table.removeOffsetObserver()
-
+```
 ##### 刷新的效果图
 
 
@@ -74,4 +74,4 @@
 详细信息请移步到我的博客
 [Swift 让我来告诉你封装下拉刷新多么简单](http://www.jianshu.com/p/725cd8028c8a)
 
-##--by West
+## --by West
