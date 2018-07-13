@@ -25,7 +25,7 @@
 使用 `LCRefresh` 非常方便，只需添加一行代码。
 
 #### Pod 支持
->pod 'LCRefresh', '~> 0.1.16'
+>pod 'LCRefresh', '~> 0.2.2'
 
 #### Carthage 支持
 >github "liutongchao/LCRefresh"
